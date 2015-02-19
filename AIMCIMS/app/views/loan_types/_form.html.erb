@@ -1,0 +1,48 @@
+<%= form_for(@loan_type) do |f| %>
+  <% if @loan_type.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@loan_type.errors.count, "error") %> prohibited this loan_type from being saved:</h2>
+
+      <ul>
+      <% @loan_type.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  
+  <div class="field">
+   <label>Loan Name:</label><br/>
+    <%= f.text_field :loanName %>
+    
+ 
+  </div>
+  <div class="field">
+   <label>Maximum Amount:</label><br/>
+    <%= f.text_field :maxAmount %>
+  </div>
+  <div class="field">
+   <label>Minimum Amount:</label><br/>
+    <%= f.text_field :minAmmount %>
+  </div>
+  <div class="field">
+   <label>Interest Rate:</label><br/>
+    <%= f.text_field :interestRate %>
+  </div>
+  <div class="field">
+    <label>Period:</label><br/>
+    <%= f.number_field :period %>
+  </div>
+  <div class="field">
+    <label>Terms of Payment:</label><br/>
+     <%= f.text_field :termOfPayment %>
+  </div>
+  <div class="field">
+    <%= f.label :penalty %><br>
+    <%= f.text_field :penalty %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

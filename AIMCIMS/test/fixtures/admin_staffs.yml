@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  staffId: 1
+  name: MyString
+  dateHired: 2015-01-26
+  position: MyString
+  status: MyString
+
+two:
+  staffId: 1
+  name: MyString
+  dateHired: 2015-01-26
+  position: MyString
+  status: MyString

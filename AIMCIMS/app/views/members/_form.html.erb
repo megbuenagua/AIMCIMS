@@ -1,0 +1,133 @@
+<%= form_for(@member) do |f| %>
+  <% if @member.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@member.errors.count, "error") %> prohibited this member from being saved:</h2>
+
+      <ul>
+      <% @member.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <label>Member ID:</label><br/>
+    <%= f.number_field :memberId , readonly: true %>
+  </div>
+  <div class="field">
+    <label>First Name:</label><br/>
+    <%= f.text_field :firstname %>
+  </div>
+  <div class="field">
+   <label>Middle Name:</label><br/>
+    <%= f.text_field :middlename %>
+  </div>
+  <div class="field">
+    <label>Last Name:</label><br/>
+    <%= f.text_field :lastname %>
+  </div>
+  <div class="field">
+     <label>Gender:</label><br/>
+        
+    <%= f.radio_button(:gender, "Female") %>
+	<%= f.label(:g_f, "Female") %>
+	<%= f.radio_button(:gender, "Male") %>
+	<%= f.label(:g_m, "Male") %>
+	
+  </div>
+  <div class="field">
+    <%= f.label :birthdate %><br>
+    <%= f.date_select(:birthdate, start_year: 1950) %>
+  </div>
+  <div class="field">
+    <label>Permanent Address:</label><br/>
+    <%= f.text_field :permanentAddress %>
+  </div>
+  <div class="field">
+   <label>Home Number:</label><br/>
+    <%= f.number_field :homeNumber %>
+  </div>
+  <div class="field">
+   <label>Office Number:</label><br/>
+    <%= f.number_field :officeNumber %>
+  </div>
+  <div class="field">
+    <label>Mobile Number:</label><br/>
+    <%= f.number_field :mobileNumber %>
+  </div>
+  <div class="field">
+    <label>Personal Email Address:</label><br/>
+    <%= f.text_field :personalEmail %>
+  </div>
+  <div class="field">
+    <label>Civil Status:</label><br/>
+        
+    <%= f.radio_button(:civilSatus, "Single") %>
+	<%= f.label(:p_B, "Single") %>
+	<%= f.radio_button(:civilSatus, "Married") %>
+	<%= f.label(:p_M, "Married") %>
+	<%= f.radio_button(:civilSatus, "Widow") %>
+	<%= f.label(:p_S, "Widow") %>
+	<%= f.radio_button(:civilSatus, "Widower") %>
+	<%= f.label(:p_S, "Widower") %>
+	<%= f.radio_button(:civilSatus, "Divorced") %>
+	<%= f.label(:p_M, "Divorced") %>
+	
+  </div>
+  <div class="field">
+    <%= f.label :spouse %><br>
+    <%= f.text_field :spouse %>
+  </div>
+  <div class="field">
+    <label>Occupation of Spouse:</label><br/>
+    <%= f.text_field :occupationOfSpouse %>
+  </div>
+  <div class="field">
+    <label>Bank Account:</label><br/>
+    <%= f.text_field :bankAccount %>
+  </div>
+  <div class="field">
+    <label>Enrolled with Postbank:</label><br/>
+    <%= f.check_box :enrolledWithPostbank %>
+  </div>
+  <div class="field">
+    <%= f.label :employer %><br>
+    <%= f.text_field :employer %>
+  </div>
+  <div class="field">
+    <label>Employer Number:</label><br/>
+    <%= f.number_field :employerNumber %>
+  </div>
+  <div class="field">
+    <%= f.label :position %><br>
+    <%= f.text_field :position %>
+  </div>
+  <div class="field">
+   <label>Office Address:</label><br/>
+    <%= f.text_field :officeAddress %>
+  </div>
+  <div class="field">
+    <label>Office Email:</label><br/>
+    <%= f.text_field :officeEmail %>
+  </div>
+  <div class="field">
+    <label>Membership Type:</label><br/>
+        
+    <%= f.radio_button(:membershipType, "Regular") %>
+	<%= f.label(:membershipType_R, "Regular") %>
+	<%= f.radio_button(:membershipType, "Associate") %>
+	<%= f.label(:membershipType_A, "Associate") %>
+  </div>
+  <div class="field">
+    <label>Date Approved:</label><br/>
+    <%= f.date_select :dateApproved %>
+  </div>
+  <div class="field">
+    <%= f.label :notes %><br>
+    <%= f.text_area :notes %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

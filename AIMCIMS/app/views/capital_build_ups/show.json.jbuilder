@@ -1,0 +1,1 @@
+json.extract! @capital_build_up, :id, :memberId, :membershipType, :memberSince, :subscribedShares, :totalAmountShares, :initialPayment, :totalPaidAmount, :paidSharesPercentage, :termsOfPayment, :status, :remarks, :created_at, :updated_at

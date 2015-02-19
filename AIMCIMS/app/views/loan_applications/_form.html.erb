@@ -1,0 +1,72 @@
+<%= form_for(@loan_application) do |f| %>
+  <% if @loan_application.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@loan_application.errors.count, "error") %> prohibited this loan_application from being saved:</h2>
+
+      <ul>
+      <% @loan_application.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+ 
+  <div class="field">
+    <label>Loan Type:</label><br/>
+     <div class="control-group">
+<%=collection_select( :loan_application, :loanType_id, Loan_type.all, :id, :loanName, {}, { :multiple=> false})%>
+</div>
+   </div>
+   
+  
+  
+  <div class="control-group">
+  	<%=f.label :member, class: 'control-group' %>
+  		<div class="controls">
+  			<%= collection_select( :loan_application, :member_id, Member.all, :id, :memberId, {} ) %>
+		</div>
+	</div>
+  
+  
+  <div class="field">      
+    <label>Application Status:</label><br/>
+    <%= f.radio_button(:applicationStatus, "Pending") %>
+	<%= f.label(:as_P, "New") %>
+	<%= f.radio_button(:applicationStatus, "Approved") %>
+	<%= f.label(:as_A, "Renew") %>
+	<%= f.radio_button(:applicationStatus, "Rejected") %>
+	<%= f.label(:as_R, "Restructured") %>
+  </div>
+  <div class="field">
+    <label>Date Filed:</label><br/>
+    <%= f.date_select :dateFiled %>
+  </div>
+  <div class="field">
+   <label>Date Approved:YYYY-MM-DD (ex. 2015-01-01)</label><br/>
+   <%= f.date_field :dateApproved %>
+  </div>
+  <div class="field">
+    <label>Date Released: YYYY-MM-DD (ex. 2015-01-01)</label><br/>
+   <%= f.date_field :dateReleased %>
+  </div>
+  <div class="field">
+  <label>Other Resources:</label><br/>
+    <%= f.text_area :otherResources %>
+  </div>
+  <div class="field">
+    <label>Total Family Income:</label><br/>
+    <%= f.text_field :totalFamilyIncome %>
+  </div>
+  <div class="field">
+    <label>Real Properties:</label><br/>
+    <%= f.text_field :realProperties %>
+  </div>
+  <div class="field">
+    <%= f.label :remarks %><br>
+    <%= f.text_area :remarks %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,29 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  coMakerId: 1
+  coMakerfname: MyString
+  coMakermname: MyString
+  coMakerlname: MyString
+  birthdate: 2015-01-27
+  address: MyString
+  spouse: MyString
+  contactNumber: 1
+  employer: MyString
+  employerAddress: MyString
+  employerContactNumber: 1
+  relationship: MyString
+
+two:
+  coMakerId: 1
+  coMakerfname: MyString
+  coMakermname: MyString
+  coMakerlname: MyString
+  birthdate: 2015-01-27
+  address: MyString
+  spouse: MyString
+  contactNumber: 1
+  employer: MyString
+  employerAddress: MyString
+  employerContactNumber: 1
+  relationship: MyString

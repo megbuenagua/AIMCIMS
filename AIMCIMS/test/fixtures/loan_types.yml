@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  loanTypeId: 1
+  loanName: MyString
+  maxAmount: 9.99
+  minAmmount: 9.99
+  interestRate: 9.99
+  period: 1
+  termOfPayment: MyString
+  penalty: 9.99
+
+two:
+  loanTypeId: 1
+  loanName: MyString
+  maxAmount: 9.99
+  minAmmount: 9.99
+  interestRate: 9.99
+  period: 1
+  termOfPayment: MyString
+  penalty: 9.99

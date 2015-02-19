@@ -1,0 +1,51 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  memberId: 1
+  firstname: MyString
+  middlename: MyString
+  lastname: MyString
+  gender: MyString
+  birthdate: 2015-01-24
+  permanentAddress: MyString
+  homeNumber: 1
+  officeNumber: 1
+  mobileNumber: 1
+  personalEmail: MyString
+  civilSatus: MyString
+  spouse: MyString
+  bankAccount: MyString
+  enrolledWithPostbank: false
+  employer: MyString
+  employerNumber: 1
+  position: MyString
+  officeAddress: MyString
+  officeEmail: MyString
+  membershipType: MyString
+  dateApproved: 2015-01-24
+  notes: MyText
+
+two:
+  memberId: 1
+  firstname: MyString
+  middlename: MyString
+  lastname: MyString
+  gender: MyString
+  birthdate: 2015-01-24
+  permanentAddress: MyString
+  homeNumber: 1
+  officeNumber: 1
+  mobileNumber: 1
+  personalEmail: MyString
+  civilSatus: MyString
+  spouse: MyString
+  bankAccount: MyString
+  enrolledWithPostbank: false
+  employer: MyString
+  employerNumber: 1
+  position: MyString
+  officeAddress: MyString
+  officeEmail: MyString
+  membershipType: MyString
+  dateApproved: 2015-01-24
+  notes: MyText

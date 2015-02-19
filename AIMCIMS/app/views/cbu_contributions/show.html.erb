@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Member ID:</strong>
+  <%= @cbu_contribution.memberID %>
+</p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @cbu_contribution.date %>
+</p>
+
+<p>
+  <strong>Amount:</strong>
+  <%= @cbu_contribution.amount %>
+</p>
+
+<p>
+  <strong>OR number:</strong>
+  <%= @cbu_contribution.OrNumber %>
+</p>
+
+<p>
+  <strong>Staff ID:</strong>
+  <%= @cbu_contribution.staffId %>
+</p>
+
+<p>
+  <strong>Remarks:</strong>
+  <%= @cbu_contribution.remarks %>
+</p>
+
+<%= link_to 'Edit', edit_cbu_contribution_path(@cbu_contribution) %> |
+<%= link_to 'Back', cbu_contributions_path %>

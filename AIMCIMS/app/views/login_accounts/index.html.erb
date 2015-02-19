@@ -1,0 +1,34 @@
+<h1>Login Accounts</h1>
+
+
+<%= link_to 'New Login account', new_login_account_path %>
+<br/><%= link_to 'Home', root_path %>
+<br/>
+<br/>
+<table>
+  <thead>
+    <tr>
+      <th>Loginid</th>
+      <th>Username</th>
+      <th>Password</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @login_accounts.each do |login_account| %>
+      <tr>
+        <td><%= login_account.loginId %></td>
+        <td><%= login_account.username %></td>
+        <td><%= login_account.password %></td>
+        <td><%= link_to 'Show', login_account %></td>
+        <td><%= link_to 'Edit', edit_login_account_path(login_account) %></td>
+        <td><%= link_to 'Destroy', login_account, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+

@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Memberid:</strong>
+  <%= @withdrawal.memberId %>
+</p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @withdrawal.date %>
+</p>
+
+<p>
+  <strong>Amount:</strong>
+  <%= @withdrawal.amount %>
+</p>
+
+<p>
+  <strong>Amount:</strong>
+  <%= @withdrawal.amount %>
+</p>
+
+<p>
+  <strong>Ornumber:</strong>
+  <%= @withdrawal.orNumber %>
+</p>
+
+<p>
+  <strong>Staffid:</strong>
+  <%= @withdrawal.staffId %>
+</p>
+
+<%= link_to 'Edit', edit_withdrawal_path(@withdrawal) %> |
+<%= link_to 'Back', withdrawals_path %>

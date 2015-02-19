@@ -1,0 +1,1 @@
+json.extract! @co_maker, :id, :coMakerId, :coMakerfname, :coMakermname, :coMakerlname, :birthdate, :address, :spouse, :contactNumber, :employer, :employerAddress, :employerContactNumber, :relationship, :created_at, :updated_at

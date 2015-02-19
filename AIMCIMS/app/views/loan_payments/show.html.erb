@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Loan ID:</strong>
+  <%= @loan_payment.loanId %>
+</p>
+
+<p>
+  <strong>Member ID:</strong>
+  <%= @loan_payment.memberId %>
+</p>
+
+<p>
+  <strong>Payment Date:</strong>
+  <%= @loan_payment.paymentDate %>
+</p>
+
+<p>
+  <strong>Amount:</strong>
+  <%= @loan_payment.amount %>
+</p>
+
+<p>
+  <strong>OR number:</strong>
+  <%= @loan_payment.orNumber %>
+</p>
+
+<p>
+  <strong>Staff ID:</strong>
+  <%= @loan_payment.staffId %>
+</p>
+
+<p>
+  <strong>Remarks:</strong>
+  <%= @loan_payment.remarks %>
+</p>
+
+<%= link_to 'Edit', edit_loan_payment_path(@loan_payment) %> |
+<%= link_to 'Back', loan_payments_path %>

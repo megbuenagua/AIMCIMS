@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Loan Name:</strong>
+  <%= @loan_type.loanName %>
+</p>
+
+<p>
+  <strong>Maximum amount:</strong>
+  <%= @loan_type.maxAmount %>
+</p>
+
+<p>
+  <strong>Minimum ammount:</strong>
+  <%= @loan_type.minAmmount %>
+</p>
+
+<p>
+  <strong>Interest rate:</strong>
+  <%= @loan_type.interestRate %>
+</p>
+
+<p>
+  <strong>Period:</strong>
+  <%= @loan_type.period %>
+</p>
+
+<p>
+  <strong>Terms of payment:</strong>
+  <%= @loan_type.termOfPayment %>
+</p>
+
+<p>
+  <strong>Penalty:</strong>
+  <%= @loan_type.penalty %>
+</p>
+
+<%= link_to 'Edit', edit_loan_type_path(@loan_type) %> |
+<%= link_to 'Back', loan_types_path %>

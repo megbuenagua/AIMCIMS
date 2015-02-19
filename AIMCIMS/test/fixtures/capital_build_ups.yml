@@ -1,0 +1,27 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  memberId: 1
+  membershipType: MyString
+  memberSince: 2015-01-27
+  subscribedShares: 1
+  totalAmountShares: 1
+  initialPayment: 9.99
+  totalPaidAmount: 9.99
+  paidSharesPercentage: 9.99
+  termsOfPayment: MyString
+  status: MyString
+  remarks: MyText
+
+two:
+  memberId: 1
+  membershipType: MyString
+  memberSince: 2015-01-27
+  subscribedShares: 1
+  totalAmountShares: 1
+  initialPayment: 9.99
+  totalPaidAmount: 9.99
+  paidSharesPercentage: 9.99
+  termsOfPayment: MyString
+  status: MyString
+  remarks: MyText

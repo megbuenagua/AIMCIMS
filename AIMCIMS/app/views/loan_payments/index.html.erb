@@ -1,0 +1,42 @@
+<h1>Loan Payments</h1>
+
+<%= link_to 'New Loan payment', new_loan_payment_path %>
+<br/><%= link_to 'Home', root_path %>
+<br/>
+<br/>
+
+<table>
+  <thead>
+    <tr>
+      <th>Loanid</th>
+      <th>Memberid</th>
+      <th>Paymentdate</th>
+      <th>Amount</th>
+      <th>Ornumber</th>
+      <th>Staffid</th>
+      <th>Remarks</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @loan_payments.each do |loan_payment| %>
+      <tr>
+        <td><%= loan_payment.loanId %></td>
+        <td><%= loan_payment.memberId %></td>
+        <td><%= loan_payment.paymentDate %></td>
+        <td><%= loan_payment.amount %></td>
+        <td><%= loan_payment.orNumber %></td>
+        <td><%= loan_payment.staffId %></td>
+        <td><%= loan_payment.remarks %></td>
+        <td><%= link_to 'Show', loan_payment %></td>
+        <td><%= link_to 'Edit', edit_loan_payment_path(loan_payment) %></td>
+        <td><%= link_to 'Destroy', loan_payment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+

@@ -1,0 +1,38 @@
+<%= form_for(@saving) do |f| %>
+  <% if @saving.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@saving.errors.count, "error") %> prohibited this saving from being saved:</h2>
+
+      <ul>
+      <% @saving.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  
+  <div class="field">
+    <label>Member ID:</label><br/>
+    <%= f.number_field :memberId %>
+  </div>
+  <div class="field">
+    <label>Date and Time:</label><br/>
+    <%= f.datetime_select :dateTime %>
+  </div>
+  <div class="field">
+    <%= f.label :amount %><br>
+    <%= f.text_field :amount %>
+  </div>
+  <div class="field">
+   <label>OR Number:</label><br/>
+    <%= f.text_field :orNumber %>
+  </div>
+  <div class="field">
+    <label>Staff ID:</label><br/>
+    <%= f.number_field :staffed %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

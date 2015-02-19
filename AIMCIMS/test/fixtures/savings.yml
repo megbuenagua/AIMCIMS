@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  savingsId: 1
+  memberId: 1
+  dateTime: 2015-01-26 00:58:29
+  amount: 9.99
+  orNumber: MyString
+  staffed: 1
+
+two:
+  savingsId: 1
+  memberId: 1
+  dateTime: 2015-01-26 00:58:29
+  amount: 9.99
+  orNumber: MyString
+  staffed: 1

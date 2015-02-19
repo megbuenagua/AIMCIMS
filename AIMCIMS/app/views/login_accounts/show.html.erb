@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Login ID:</strong>
+  <%= @login_account.loginId %>
+</p>
+
+<p>
+  <strong>Username:</strong>
+  <%= @login_account.username %>
+</p>
+
+<p>
+  <strong>Password:</strong>
+  <%= @login_account.password %>
+</p>
+
+<%= link_to 'Edit', edit_login_account_path(@login_account) %> |
+<%= link_to 'Back', login_accounts_path %>

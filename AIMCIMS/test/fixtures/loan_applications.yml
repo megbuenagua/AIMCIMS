@@ -1,0 +1,31 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  loanId: 1
+  loanTypeId: 1
+  memberId: 1
+  applicationStatus: MyString
+  dateFiled: 2015-01-27
+  dateApproved: 2015-01-27
+  dateReleased: 2015-01-27
+  nameOfSpouse: MyString
+  occupationOfSpouse: MyString
+  otherResources: MyText
+  totalFamilyIncome: 9.99
+  realProperties: MyString
+  remarks: MyText
+
+two:
+  loanId: 1
+  loanTypeId: 1
+  memberId: 1
+  applicationStatus: MyString
+  dateFiled: 2015-01-27
+  dateApproved: 2015-01-27
+  dateReleased: 2015-01-27
+  nameOfSpouse: MyString
+  occupationOfSpouse: MyString
+  otherResources: MyText
+  totalFamilyIncome: 9.99
+  realProperties: MyString
+  remarks: MyText

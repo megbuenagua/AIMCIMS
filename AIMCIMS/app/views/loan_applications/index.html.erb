@@ -1,0 +1,43 @@
+<h1>Loan Management</h1>
+
+<%= link_to 'Loan Types', loan_types_path %><br/>
+<%= link_to 'New Loan application', new_loan_application_path %><br/>
+<%= link_to 'Loan Payments', loan_payments_path %><br/>
+<%= link_to 'Comaker', co_makers_path %>
+<br/><%= link_to 'Home', root_path %>
+<br/>
+<br/>
+<table>
+  <thead>
+    <tr>
+      <th>Loantypeid</th>
+      <th>Memberid</th>
+      <th>Applicationstatus</th>
+      <th>Datefiled</th>
+      <th>Dateapproved</th>
+      <th>Datereleased</th>
+      
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @loan_applications.each do |loan_application| %>
+      <tr>
+        <td><%= loan_application.loan_type_id %></td>
+        <td><%= loan_application.member_id %></td>
+        <td><%= loan_application.applicationStatus %></td>
+        <td><%= loan_application.dateFiled %></td>
+        <td><%= loan_application.dateApproved %></td>
+        <td><%= loan_application.dateReleased %></td>
+       
+        <td><%= link_to 'Show', loan_application %></td>
+        <td><%= link_to 'Edit', edit_loan_application_path(loan_application) %></td>
+        <td><%= link_to 'Destroy', loan_application, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+

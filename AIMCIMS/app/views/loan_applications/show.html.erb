@@ -1,0 +1,56 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Loan type ID:</strong>
+  <%= @loan_application.loan_type_id %>
+</p>
+
+<p>
+  <strong>Member ID:</strong>
+  <%= @loan_application.member_id %>
+</p>
+
+<p>
+  <strong>Application status:</strong>
+  <%= @loan_application.applicationStatus %>
+</p>
+
+<p>
+  <strong>Date filed:</strong>
+  <%= @loan_application.dateFiled %>
+</p>
+
+<p>
+  <strong>Date approved:</strong>
+  <%= @loan_application.dateApproved %>
+</p>
+
+<p>
+  <strong>Date released:</strong>
+  <%= @loan_application.dateReleased %>
+</p>
+
+
+
+<p>
+  <strong>Other resources:</strong>
+  <%= @loan_application.otherResources %>
+</p>
+
+<p>
+  <strong>Total family income:</strong>
+  <%= @loan_application.totalFamilyIncome %>
+</p>
+
+<p>
+  <strong>Real properties:</strong>
+  <%= @loan_application.realProperties %>
+</p>
+
+<p>
+  <strong>Remarks:</strong>
+  <%= @loan_application.remarks %>
+</p>
+
+<%= link_to 'Edit', edit_loan_application_path(@loan_application) %> |
+<%= link_to 'Back', loan_applications_path %>

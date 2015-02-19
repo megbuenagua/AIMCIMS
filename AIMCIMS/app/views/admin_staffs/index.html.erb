@@ -1,0 +1,36 @@
+<h1>Staff and Administrator's Account</h1>
+
+<%= link_to 'New Admin staff', new_admin_staff_path %>
+<br/><%= link_to 'Login Accounts', login_accounts_path %>
+<br/><%= link_to 'Home', root_path %>
+
+<table>
+  <thead>
+    <tr>
+      <th>Staffid</th>
+      <th>Name</th>
+      <th>Datehired</th>
+      <th>Position</th>
+      <th>Status</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @admin_staffs.each do |admin_staff| %>
+      <tr>
+        <td><%= admin_staff.staffId %></td>
+        <td><%= admin_staff.name %></td>
+        <td><%= admin_staff.dateHired %></td>
+        <td><%= admin_staff.position %></td>
+        <td><%= admin_staff.status %></td>
+        <td><%= link_to 'Show', admin_staff %></td>
+        <td><%= link_to 'Edit', edit_admin_staff_path(admin_staff) %></td>
+        <td><%= link_to 'Destroy', admin_staff, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+

@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Member ID:</strong>
+  <%= @saving.memberId %>
+</p>
+
+<p>
+  <strong>Date and time of Payment:</strong>
+  <%= @saving.dateTime %>
+</p>
+
+<p>
+  <strong>Amount:</strong>
+  <%= @saving.amount %>
+</p>
+
+<p>
+  <strong>OR number:</strong>
+  <%= @saving.orNumber %>
+</p>
+
+<p>
+  <strong>Staff ID:</strong>
+  <%= @saving.staffed %>
+</p>
+
+<%= link_to 'Edit', edit_saving_path(@saving) %> |
+<%= link_to 'Back', savings_path %>
