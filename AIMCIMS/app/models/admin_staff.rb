@@ -1,3 +1,4 @@
+
 class AdminStaff < ActiveRecord::Base
 
   validates :dateHired, presence: true
