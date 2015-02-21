@@ -1,6 +1,6 @@
 class LoanType < ActiveRecord::Base
 
-  has_many :loan_applications
+  belongs_to :loan_applications
 
   validates :loanName, presence: true
   validates :maxAmount, presence: true

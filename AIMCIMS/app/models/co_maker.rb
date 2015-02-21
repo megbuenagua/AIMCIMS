@@ -7,7 +7,5 @@ class CoMaker < ActiveRecord::Base
   validates :birthdate, presence: true
   validates :address, presence: true
   validates :contactNumber, presence: true
-  validates :relationship, presence: true
-    
-    
+     
 end

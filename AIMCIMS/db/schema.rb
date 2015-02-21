@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150218190532) do
+ActiveRecord::Schema.define(version: 20150220162502) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -61,11 +61,10 @@ ActiveRecord::Schema.define(version: 20150218190532) do
     t.date     "birthdate"
     t.string   "address"
     t.string   "spouse"
-    t.integer  "contactNumber"
+    t.string   "contactNumber"
     t.string   "employer"
     t.string   "employerAddress"
-    t.integer  "employerContactNumber"
-    t.string   "relationship"
+    t.string   "employerContactNumber"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -90,8 +89,14 @@ ActiveRecord::Schema.define(version: 20150218190532) do
     t.string   "termOfPayment"
     t.decimal  "paymentPerTerm"
     t.decimal  "penaltyAmount"
+    t.integer  "coMaker1_id"
+    t.integer  "coMaker2_id"
+    t.integer  "co_maker_id"
+    t.string   "relationship1"
+    t.string   "relationship2"
   end
 
+  add_index "loan_applications", ["co_maker_id"], name: "index_loan_applications_on_co_maker_id", using: :btree
   add_index "loan_applications", ["loan_type_id"], name: "index_loan_applications_on_loan_type_id", using: :btree
   add_index "loan_applications", ["member_id"], name: "index_loan_applications_on_member_id", using: :btree
 
@@ -113,7 +118,6 @@ ActiveRecord::Schema.define(version: 20150218190532) do
     t.decimal  "minAmmount"
     t.decimal  "interestRate"
     t.integer  "period"
-    t.string   "termOfPayment"
     t.decimal  "penalty"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -135,16 +139,16 @@ ActiveRecord::Schema.define(version: 20150218190532) do
     t.string   "gender"
     t.date     "birthdate"
     t.string   "permanentAddress"
-    t.integer  "homeNumber"
-    t.integer  "officeNumber"
-    t.integer  "mobileNumber"
+    t.string   "homeNumber"
+    t.string   "officeNumber"
+    t.string   "mobileNumber"
     t.string   "personalEmail"
     t.string   "civilSatus"
     t.string   "spouse"
     t.string   "bankAccount"
     t.boolean  "enrolledWithPostbank"
     t.string   "employer"
-    t.integer  "employerNumber"
+    t.string   "employerNumber"
     t.string   "position"
     t.string   "officeAddress"
     t.string   "officeEmail"
@@ -154,6 +158,8 @@ ActiveRecord::Schema.define(version: 20150218190532) do
     t.datetime "updated_at"
     t.string   "membershipType"
     t.string   "occupationOfSpouse"
+    t.string   "spouseOccupation"
+    t.string   "spouseContactNumber"
   end
 
   create_table "savings", force: true do |t|
@@ -161,9 +167,9 @@ ActiveRecord::Schema.define(version: 20150218190532) do
     t.datetime "dateTime"
     t.decimal  "amount"
     t.string   "orNumber"
-    t.integer  "staffed"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "admin_staff_id"
   end
 
   create_table "withdrawals", force: true do |t|
@@ -176,6 +182,7 @@ ActiveRecord::Schema.define(version: 20150218190532) do
     t.datetime "updated_at"
   end
 
+  add_foreign_key "loan_applications", "co_makers", name: "loan_applications_co_maker_id_fk"
   add_foreign_key "loan_applications", "loan_types", name: "loan_applications_loan_type_id_fk"
   add_foreign_key "loan_applications", "members", name: "loan_applications_member_id_fk"
 

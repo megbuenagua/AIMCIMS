@@ -16,20 +16,23 @@ class LoanApplicationsController < ApplicationController
   def new
     @members = Member.all
     @loan_application = LoanApplication.new
-   
   end
 
   # GET /loan_applications/1/edit
   def edit
   end
+  
+  
 
   # POST /loan_applications
   # POST /loan_applications.json
   def create
+    
     @loan_application = LoanApplication.new(loan_application_params)
-
+  
     respond_to do |format|
       if @loan_application.save
+         
         format.html { redirect_to @loan_application, notice: 'Loan application was successfully created.' }
         format.json { render :show, status: :created, location: @loan_application }
       else
@@ -71,6 +74,7 @@ class LoanApplicationsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def loan_application_params
-      params.require(:loan_application).permit(:loanId, :loan_type_id, :member_id, :applicationStatus, :dateFiled, :dateApproved, :dateReleased, :otherResources, :totalFamilyIncome, :realProperties, :remarks)
+      params.require(:loan_application).permit(:loanId, :loan_type_id, :member_id, :applicationStatus, :dateFiled, :dateApproved, :dateReleased, :otherResources, :totalFamilyIncome, 
+      :realProperties, :remarks, :applicationType, :loanAmount, :termOfPayment, :paymentPerTerm, :panaltyAmount, :coMaker1_id, :coMake2_id, :relationship1, :relationship2)
     end
 end

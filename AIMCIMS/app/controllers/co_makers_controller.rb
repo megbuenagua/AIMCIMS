@@ -72,6 +72,6 @@ class CoMakersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def co_maker_params
-      params.require(:co_maker).permit(:coMakerId, :coMakerfname, :coMakermname, :coMakerlname, :birthdate, :address, :spouse, :contactNumber, :employer, :employerAddress, :employerContactNumber, :relationship)
+      params.require(:co_maker).permit(:coMakerId, :coMakerfname, :coMakermname, :coMakerlname, :birthdate, :address, :spouse, :contactNumber, :employer, :employerAddress, :employerContactNumber)
     end
 end

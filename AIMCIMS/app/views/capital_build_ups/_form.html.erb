@@ -11,10 +11,12 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <label>Member ID:</label><br/>
-    <%= f.number_field :memberId %>
-  </div>
+  <div class="control-group">
+  	<%=f.label :member, class: 'control-group' %>
+  		<div class="controls">
+  			<%= collection_select( :capital_build_up, :id, Member.all, :id, :fullname, {}) %>
+		</div>
+	</div>
   <div class="field">
    <label>Membership Type:</label><br/>
     <%= f.text_field :membershipType %>

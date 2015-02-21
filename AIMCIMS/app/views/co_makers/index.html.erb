@@ -12,8 +12,6 @@
       <th></th>
       <th></th>
       <th>Birthdate</th>
-     
-      <th>Relationship with Applicant</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -26,7 +24,7 @@
         <td><%= co_maker.coMakermname %></td>
         <td><%= co_maker.coMakerlname %></td>
        <td><%= co_maker.birthdate %></td>
-        <td><%= co_maker.relationship %></td>
+       
         <td><%= link_to 'Show', co_maker %></td>
         <td><%= link_to 'Edit', edit_co_maker_path(co_maker) %></td>
         <td><%= link_to 'Destroy', co_maker, method: :delete, data: { confirm: 'Are you sure?' } %></td>
