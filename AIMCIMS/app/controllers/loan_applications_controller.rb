@@ -10,19 +10,20 @@ class LoanApplicationsController < ApplicationController
   # GET /loan_applications/1
   # GET /loan_applications/1.json
   def show
+  @loan_type=LoanType.find( @loan_application.loan_type_id) 
+  @memberName = Member.find(@loan_application.member_id)
   end
 
   # GET /loan_applications/new
   def new
     @members = Member.all
     @loan_application = LoanApplication.new
+    @loan_CM1 = CoMaker.where(coMakerId: ':coMaker1_id')
   end
 
   # GET /loan_applications/1/edit
   def edit
-  end
-  
-  
+  end  
 
   # POST /loan_applications
   # POST /loan_applications.json
@@ -32,7 +33,7 @@ class LoanApplicationsController < ApplicationController
   
     respond_to do |format|
       if @loan_application.save
-         
+     
         format.html { redirect_to @loan_application, notice: 'Loan application was successfully created.' }
         format.json { render :show, status: :created, location: @loan_application }
       else
@@ -74,7 +75,7 @@ class LoanApplicationsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def loan_application_params
-      params.require(:loan_application).permit(:loanId, :loan_type_id, :member_id, :applicationStatus, :dateFiled, :dateApproved, :dateReleased, :otherResources, :totalFamilyIncome, 
-      :realProperties, :remarks, :applicationType, :loanAmount, :termOfPayment, :paymentPerTerm, :panaltyAmount, :coMaker1_id, :coMake2_id, :relationship1, :relationship2)
+      params.require(:loan_application).permit( :loan_type_id, :member_id, :applicationStatus, :dateFiled, :dateApproved, :dateReleased, :otherResources, :totalFamilyIncome, 
+      :realProperties, :remarks, :applicationType, :loanAmount, :termOfPayment, :paymentPerTerm, :panaltyAmount, :coMaker1_id,  :relationship1, :coMaker2_id, :relationship2)
     end
 end

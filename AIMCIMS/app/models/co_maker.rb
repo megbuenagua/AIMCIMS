@@ -7,5 +7,9 @@ class CoMaker < ActiveRecord::Base
   validates :birthdate, presence: true
   validates :address, presence: true
   validates :contactNumber, presence: true
+  
+  def cmfullname
+  "#{coMakerfname}, #{coMakermname} #{coMakerlname} (#{coMakerId}) "
+end
      
 end

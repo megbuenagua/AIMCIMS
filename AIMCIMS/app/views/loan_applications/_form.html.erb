@@ -30,11 +30,11 @@
   
   <div class="field">      
     <label>Application Type:</label><br/>
-    <%= f.radio_button(:applicationStatus, "New") %>
+    <%= f.radio_button(:applicationType, "New") %>
 	<%= f.label(:as_N, "New") %>
-	<%= f.radio_button(:applicationStatus, "Renew") %>
+	<%= f.radio_button(:applicationType, "Renew") %>
 	<%= f.label(:as_R, "Renew") %>
-	<%= f.radio_button(:applicationStatus, "Restructured") %>
+	<%= f.radio_button(:applicationType, "Restructured") %>
 	<%= f.label(:as_Rs, "Restructured") %>
   </div>
   
@@ -50,20 +50,20 @@
   
   <div class="field">      
     <label>Term of Payment:</label><br/>
-    <%= f.radio_button(:applicationStatus, "Daily") %>
+    <%= f.radio_button(:termOfPayment, "Daily") %>
 	<%= f.label(:as_d, "Daily") %>
-	<%= f.radio_button(:applicationStatus, "Weekly") %>
+	<%= f.radio_button(:termOfPayment, "Weekly") %>
 	<%= f.label(:as_w, "Weekly") %>
-	<%= f.radio_button(:applicationStatus, "Monthly") %>
+	<%= f.radio_button(:termOfPayment, "Monthly") %>
 	<%= f.label(:as_m, "Monthly") %>
-	<%= f.radio_button(:applicationStatus, "Quarterly") %>
+	<%= f.radio_button(:termOfPayment, "Quarterly") %>
 	<%= f.label(:as_q, "Quarterly") %>
-	<%= f.radio_button(:applicationStatus, "Biannually") %>
+	<%= f.radio_button(:termOfPayment, "Biannually") %>
 	<%= f.label(:as_b, "Biannually") %>
-	<%= f.radio_button(:applicationStatus, "Annually") %>
+	<%= f.radio_button(:termOfPayment, "Annually") %>
 	<%= f.label(:as_a, "Annually") %>
   </div>
-  
+ 
   <div class="field">
   <label>Payment per Term:</label><br/>
     <%= f.text_field :paymentPerTerm %>
@@ -91,17 +91,23 @@
   
   <div class="field">
     <label>Co-Maker 1:</label><br/>
-    <%= f.text_field :coMaker1_id %>
+    <div class="control-group">
+<%=collection_select( :loan_application, :coMaker1_id, CoMaker.all, :id, :cmfullname, {}, {:multiple=> false})%>
   </div>
-  
+  </div>
   <div class="field">
     <label>Relationship to the applicant:</label><br/>
     <%= f.text_field :relationship1 %>
   </div>
   
-  <div class="field">
-    <label>Co-maker 2:</label><br/>
-    <%= f.text_field :coMaker2_id %>
+
+  
+  <div class="control-group">
+  	<label>Co-maker 2:</label><br/>
+  		<div class="controls">
+  		<%= collection_select( :loan_application, :coMaker2_id, CoMaker.all, :id, :cmfullname, {}, {:multiple=> false} ) %>
+		</div>
+	</div>
     
   </div>
   

@@ -2,17 +2,19 @@
 
 <p>
   <strong>Loan type ID:</strong>
-  <%= @loan_application.loan_type_id %>
+  <%= @loan_application.loan_type_id %> :
+  <%= @loan_type.loanName %>
 </p>
 
 <p>
   <strong>Member ID:</strong>
-  <%= @loan_application.member_id %>
+  <%= @loan_application.member_id %> :
+  <%= @memberName.fullname %>
 </p>
 
 <p>
-  <strong>Application status:</strong>
-  <%= @loan_application.applicationStatus %>
+  <strong>Application Type:</strong>
+  <%= @loan_application.applicationType %>
 </p>
 
 <p>
@@ -21,16 +23,19 @@
 </p>
 
 <p>
-  <strong>Date approved:</strong>
-  <%= @loan_application.dateApproved %>
+  <strong>Loan Amount:</strong>
+  <%= @loan_application.loanAmount %>
 </p>
 
 <p>
-  <strong>Date released:</strong>
-  <%= @loan_application.dateReleased %>
+  <strong>Term of Payment:</strong>
+  <%= @loan_application.termOfPayment%>
 </p>
 
-
+<p>
+  <strong>Penalty:</strong>
+  <%= @loan_application.penaltyAmount%>
+</p>
 
 <p>
   <strong>Other resources:</strong>
@@ -48,8 +53,43 @@
 </p>
 
 <p>
+  <strong>Co-Maker 1:</strong>
+  <%= @loan_application.coMaker1_id %>
+</p>
+
+<p>
+  <strong>Relationship to the applicant:</strong>
+  <%= @loan_application.relationship1 %>
+</p>
+
+<p>
+  <strong>Co-Maker 2:</strong>
+  <%= @loan_application.coMaker2_id %>
+</p>
+
+<p>
+  <strong>Relationship to the applicant:</strong>
+  <%= @loan_application.relationship2 %>
+</p>
+<p>
   <strong>Remarks:</strong>
   <%= @loan_application.remarks %>
+</p>
+
+
+<p>
+  <strong>Application status:</strong>
+  <%= @loan_application.applicationStatus %>
+</p>
+
+<p>
+  <strong>Date approved:</strong>
+  <%= @loan_application.dateApproved %>
+</p>
+
+<p>
+  <strong>Date released:</strong>
+  <%= @loan_application.dateReleased %>
 </p>
 
 <%= link_to 'Edit', edit_loan_application_path(@loan_application) %> |
