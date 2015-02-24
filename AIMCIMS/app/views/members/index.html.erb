@@ -7,6 +7,11 @@
 <br/>
 <br/> 
 
+<%= form_tag("/members/search", method: "get") do %>
+  <%= label_tag(:q, "Search for:") %>
+  <%= text_field_tag(:q) %>
+  <%= submit_tag("Search") %>
+<% end %>
  
 <table>
   <thead>
@@ -17,22 +22,13 @@
       <th>Lastname</th>
       <th>Gender</th>
       <th>Birthdate</th>
-         
       <th>Civilsatus</th>
-      
       <th>Membershiptype</th>
       <th>Dateapproved</th>
       
       <th colspan="3"></th>
     </tr>
   </thead>
-
-<% form_tag("/search", method: "get") do %>
-  <p>
-    <%= text_field_tag :search, params[:search] %>
-    <%= submit_tag "Search", :name => nil %>
-  </p>
-<% end %>
 
   <tbody>
     <% @members.each do |member| %>

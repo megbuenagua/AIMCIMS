@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150220162502) do
+ActiveRecord::Schema.define(version: 20150223080551) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -65,6 +65,17 @@ ActiveRecord::Schema.define(version: 20150220162502) do
     t.string   "employer"
     t.string   "employerAddress"
     t.string   "employerContactNumber"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "expenses", force: true do |t|
+    t.string   "particulars"
+    t.date     "date"
+    t.decimal  "amount"
+    t.string   "approvedBy"
+    t.string   "receivedBy"
+    t.integer  "staffId"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

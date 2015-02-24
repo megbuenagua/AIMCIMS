@@ -1,12 +1,13 @@
 Rails.application.routes.draw do
+  root 'welcome#index'
+  
+  #resources :home
+  get '/members/search' => 'members#search'
+  resources :expenses
 
   resources :withdrawals
 
   resources :capital_build_ups
-
-  root 'welcome#index'
-  
-  #resources :home
    
   resources :co_makers
 

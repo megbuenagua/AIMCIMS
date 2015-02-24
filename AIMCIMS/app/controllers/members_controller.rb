@@ -4,8 +4,12 @@ class MembersController < ApplicationController
   # GET /members
   # GET /members.json
   def index
-    @members = Member.all
-    #@members = Member.search(params[:search])
+    if params[:q].nil?
+      @members = Member.all
+    else
+      #@members = Member.where(lastname: params[:q])
+      @members = Member.find_by_sql("SELECT * FROM members WHERE lower(lastname) similar to \'%" + params[:q] + "%\'")
+    end
   end
 
   # GET /members/1
@@ -13,9 +17,10 @@ class MembersController < ApplicationController
   def show
   end
   
-  #def index
-  #@members = Member.search(params[:search])
-  #end
+  def search
+    @memberln = Member.find_by lastname: params[:q]
+    redirect_to :controller => 'members', :action => 'index', :q => params[:q]
+  end
 
   # GET /members/new
   def new

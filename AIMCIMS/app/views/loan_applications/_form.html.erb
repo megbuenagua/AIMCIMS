@@ -24,7 +24,7 @@
   <div class="control-group">
   	<%=f.label :member, class: 'control-group' %>
   		<div class="controls">
-  			<%= collection_select( :loan_application, :member_id, Member.all, :id, :fullname, {} ) %>
+  			<%= collection_select( :loan_application, :member_id, Member.all, :id, :fullname, {:include_blank => true} ) %>
 		</div>
 	</div>
   
@@ -92,7 +92,7 @@
   <div class="field">
     <label>Co-Maker 1:</label><br/>
     <div class="control-group">
-<%=collection_select( :loan_application, :coMaker1_id, CoMaker.all, :id, :cmfullname, {}, {:multiple=> false})%>
+<%=collection_select( :loan_application, :coMaker1_id, CoMaker.all, :id, :cmfullname, {:include_blank => true})%>
   </div>
   </div>
   <div class="field">
@@ -105,7 +105,7 @@
   <div class="control-group">
   	<label>Co-maker 2:</label><br/>
   		<div class="controls">
-  		<%= collection_select( :loan_application, :coMaker2_id, CoMaker.all, :id, :cmfullname, {}, {:multiple=> false} ) %>
+  		<%= collection_select( :loan_application, :coMaker2_id, CoMaker.all, :id, :cmfullname, {:include_blank => true}) %>
 		</div>
 	</div>
     
