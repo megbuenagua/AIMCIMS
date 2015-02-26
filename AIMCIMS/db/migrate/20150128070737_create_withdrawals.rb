@@ -1,12 +1,12 @@
 class CreateWithdrawals < ActiveRecord::Migration
   def change
     create_table :withdrawals do |t|
-      t.integer :memberId
-      t.datetime :date
+      t.integer :member_id
+      t.datetime :date_time
       t.decimal :amount
-      t.decimal :amount
-      t.string :orNumber
-      t.integer :staffId
+      t.string  :ornumber
+      t.integer :staff_id
+      t.text    :remarks
 
       t.timestamps
     end

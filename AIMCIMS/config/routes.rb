@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
+ 
+  get 'welcome/home'
   root 'welcome#index'
-  
-  #resources :home
   get '/members/search' => 'members#search'
+  get '/loan_applications/search' => 'loan_applications#search'
+ 
   resources :expenses
 
   resources :withdrawals

@@ -2,7 +2,9 @@
 
 <p>
   <strong>Memberid:</strong>
-  <%= @withdrawal.memberId %>
+  <%= @withdrawal.memberId %> -
+  <%= @memberName.fullname %>
+  
 </p>
 
 <p>
@@ -16,18 +18,15 @@
 </p>
 
 <p>
-  <strong>Amount:</strong>
-  <%= @withdrawal.amount %>
-</p>
-
-<p>
-  <strong>Ornumber:</strong>
+  <strong>OR Number:</strong>
   <%= @withdrawal.orNumber %>
 </p>
 
 <p>
   <strong>Staffid:</strong>
-  <%= @withdrawal.staffId %>
+  <%= @withdrawal.staffId %> -
+  <%= @staffname.name %>
+  
 </p>
 
 <%= link_to 'Edit', edit_withdrawal_path(@withdrawal) %> |

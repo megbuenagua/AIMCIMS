@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Particulars:</strong>
+  <%= @expense.particulars %>
+</p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @expense.date %>
+</p>
+
+<p>
+  <strong>Amount:</strong>
+  <%= @expense.amount %>
+</p>
+
+<p>
+  <strong>Approvedby:</strong>
+  <%= @expense.approvedBy %>
+</p>
+
+<p>
+  <strong>Receivedby:</strong>
+  <%= @expense.receivedBy %>
+</p>
+
+<p>
+  <strong>Staffid:</strong>
+  <%= @expense.staffId %>
+</p>
+
+<%= link_to 'Edit', edit_expense_path(@expense) %> |
+<%= link_to 'Back', expenses_path %>

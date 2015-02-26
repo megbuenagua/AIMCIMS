@@ -10,6 +10,8 @@ class WithdrawalsController < ApplicationController
   # GET /withdrawals/1
   # GET /withdrawals/1.json
   def show
+  @staffname=AdminStaff.find(@withdrawal.staffId) 
+  @memberName = Member.find(@withdrawal.memberId)
   end
 
   # GET /withdrawals/new

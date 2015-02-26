@@ -1,9 +1,9 @@
 class CreateAdminStaffs < ActiveRecord::Migration
   def change
     create_table :admin_staffs do |t|
-      t.integer :staffId
+      t.integer :staff_number
       t.string :name
-      t.date :dateHired
+      t.date :dateH_hired
       t.string :position
       t.string :status
 

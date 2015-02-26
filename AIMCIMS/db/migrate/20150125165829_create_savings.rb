@@ -1,12 +1,13 @@
 class CreateSavings < ActiveRecord::Migration
   def change
     create_table :savings do |t|
-      t.integer :savingsId
-      t.integer :memberId
-      t.datetime :dateTime
+     
+      t.integer :member_id
+      t.datetime :date_time
       t.decimal :amount
-      t.string :orNumber
-      t.integer :staffed
+      t.string :ornumber
+      t.integer :staff_id
+      t.text :remarks
 
       t.timestamps
     end

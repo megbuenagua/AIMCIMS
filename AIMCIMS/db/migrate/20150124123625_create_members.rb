@@ -1,28 +1,30 @@
 class CreateMembers < ActiveRecord::Migration
   def change
     create_table :members do |t|
-      t.integer :memberId
+      t.string :member_number
       t.string :firstname
       t.string :middlename
       t.string :lastname
       t.string :gender
       t.date :birthdate
-      t.string :permanentAddress
-      t.integer :homeNumber
-      t.integer :officeNumber
-      t.integer :mobileNumber
-      t.string :personalEmail
-      t.string :civilSatus
+      t.string :permanent_address
+      t.string :home_number
+      t.string :office_number
+      t.string :mobile_number
+      t.string :personal_email
+      t.string :civil_status
       t.string :spouse
-      t.string :bankAccount
-      t.boolean :enrolledWithPostbank
+      t.string :occupation_of_spouse
+      t.string :spouse_contact
+      t.string :bank_account
+      t.boolean :enrolled_with_postbank
       t.string :employer
-      t.integer :employerNumber
+      t.string :employer_number
       t.string :position
-      t.string :officeAddress
-      t.string :officeEmail
-      t.string :membershipType
-      t.date :dateApproved
+      t.string :office_address
+      t.string :office_email
+      t.string :membership_type
+      t.date :date_approved
       t.text :notes
 
       t.timestamps

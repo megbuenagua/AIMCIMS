@@ -1,0 +1,41 @@
+<%= form_for(@expense) do |f| %>
+  <% if @expense.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@expense.errors.count, "error") %> prohibited this expense from being saved:</h2>
+
+      <ul>
+      <% @expense.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :particulars %><br>
+    <%= f.text_field :particulars %>
+  </div>
+  <div class="field">
+    <%= f.label :date %><br>
+    <%= f.date_select :date %>
+  </div>
+  <div class="field">
+    <%= f.label :amount %><br>
+    <%= f.text_field :amount %>
+  </div>
+  <div class="field">
+    <%= f.label :approvedBy %><br>
+    <%= f.text_field :approvedBy %>
+  </div>
+  <div class="field">
+    <%= f.label :receivedBy %><br>
+    <%= f.text_field :receivedBy %>
+  </div>
+  <div class="field">
+    <%= f.label :staffId %><br>
+    <%= f.number_field :staffId %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

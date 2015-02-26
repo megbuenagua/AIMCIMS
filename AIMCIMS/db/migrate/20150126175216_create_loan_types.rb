@@ -1,13 +1,12 @@
 class CreateLoanTypes < ActiveRecord::Migration
   def change
     create_table :loan_types do |t|
-      t.integer :loanTypeId
-      t.string :loanName
-      t.decimal :maxAmount
-      t.decimal :minAmmount
-      t.decimal :interestRate
+      
+      t.string :loan_name
+      t.decimal :maxamount
+      t.decimal :minamount
+      t.decimal :interest
       t.integer :period
-      t.string :termOfPayment
       t.decimal :penalty
 
       t.timestamps

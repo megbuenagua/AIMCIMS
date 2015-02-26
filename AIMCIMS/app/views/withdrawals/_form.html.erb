@@ -11,10 +11,12 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <label>Member ID:</label><br/>
-    <%= f.number_field :memberId %>
-  </div>
+  <div class="control-group">
+  	<%=f.label :member, class: 'control-group' %>
+  		<div class="controls">
+  			<%= collection_select( :withdrawal, :memberId, Member.all, :id, :fullname, {:include_blank => true} ) %>
+		</div>
+	</div>
   <div class="field">
     <%= f.label :date %><br>
     <%= f.datetime_select :date %>
@@ -28,10 +30,13 @@
     <label>OR Number:</label><br/>
     <%= f.text_field :orNumber %>
   </div>
-  <div class="field">
-    <label>Staff ID:</label><br/>
-    <%= f.number_field :staffId %>
-  </div>
+ 
+  <div class="control-group">
+  	<%=f.label :staff, class: 'control-group' %>
+  		<div class="controls">
+  			<%= collection_select( :withdrawal, :staffId, AdminStaff.all, :id, :name, {:include_blank => true} ) %></br></br>
+		</div>
+	</div>
   <div class="actions">
     <%= f.submit %>
   </div>

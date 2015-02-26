@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150223080551) do
+ActiveRecord::Schema.define(version: 20160126204140) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -81,9 +81,6 @@ ActiveRecord::Schema.define(version: 20150223080551) do
   end
 
   create_table "loan_applications", force: true do |t|
-    t.integer  "loanTypeId"
-    t.string   "memberId"
-    t.string   "applicationStatus"
     t.date     "dateFiled"
     t.date     "dateApproved"
     t.date     "dateReleased"
@@ -93,23 +90,20 @@ ActiveRecord::Schema.define(version: 20150223080551) do
     t.text     "remarks"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "member_id"
     t.integer  "loan_type_id"
+    t.integer  "member_id"
+    t.string   "memberId"
     t.string   "applicationType"
     t.decimal  "loanAmount"
     t.string   "termOfPayment"
     t.decimal  "paymentPerTerm"
-    t.decimal  "penaltyAmount"
     t.integer  "coMaker1_id"
     t.integer  "coMaker2_id"
-    t.integer  "co_maker_id"
     t.string   "relationship1"
     t.string   "relationship2"
+    t.integer  "penaltyAmount"
+    t.string   "applicationStatus"
   end
-
-  add_index "loan_applications", ["co_maker_id"], name: "index_loan_applications_on_co_maker_id", using: :btree
-  add_index "loan_applications", ["loan_type_id"], name: "index_loan_applications_on_loan_type_id", using: :btree
-  add_index "loan_applications", ["member_id"], name: "index_loan_applications_on_member_id", using: :btree
 
   create_table "loan_payments", force: true do |t|
     t.integer  "loanId"
@@ -192,9 +186,5 @@ ActiveRecord::Schema.define(version: 20150223080551) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
-
-  add_foreign_key "loan_applications", "co_makers", name: "loan_applications_co_maker_id_fk"
-  add_foreign_key "loan_applications", "loan_types", name: "loan_applications_loan_type_id_fk"
-  add_foreign_key "loan_applications", "members", name: "loan_applications_member_id_fk"
 
 end

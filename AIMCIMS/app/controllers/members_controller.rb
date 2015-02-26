@@ -11,17 +11,17 @@ class MembersController < ApplicationController
       @members = Member.find_by_sql("SELECT * FROM members WHERE lower(lastname) similar to \'%" + params[:q] + "%\'")
     end
   end
-
-  # GET /members/1
-  # GET /members/1.json
-  def show
-  end
   
   def search
     @memberln = Member.find_by lastname: params[:q]
     redirect_to :controller => 'members', :action => 'index', :q => params[:q]
   end
 
+  # GET /members/1
+  # GET /members/1.json
+  def show
+  end
+  
   # GET /members/new
   def new
     @member = Member.new

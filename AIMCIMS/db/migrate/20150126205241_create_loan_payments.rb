@@ -1,12 +1,12 @@
 class CreateLoanPayments < ActiveRecord::Migration
   def change
     create_table :loan_payments do |t|
-      t.integer :loanId
-      t.integer :memberId
-      t.date :paymentDate
+      t.integer :loan_id
+      t.integer :member_id
+      t.date :payment_date
       t.decimal :amount
-      t.string :orNumber
-      t.integer :staffId
+      t.string :ornumber
+      t.integer :staff_id
       t.text :remarks
 
       t.timestamps

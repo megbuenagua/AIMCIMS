@@ -1,11 +1,11 @@
 class CreateCbuContributions < ActiveRecord::Migration
   def change
     create_table :cbu_contributions do |t|
-      t.integer :memberID
+      t.integer :member_id
       t.datetime :date
       t.decimal :amount
-      t.string :OrNumber
-      t.integer :staffId
+      t.string :ornumber
+      t.integer :staff_id
       t.text :remarks
 
       t.timestamps

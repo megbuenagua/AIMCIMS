@@ -4,7 +4,19 @@ class LoanApplicationsController < ApplicationController
   # GET /loan_applications
   # GET /loan_applications.json
   def index
-    @loan_applications = LoanApplication.all
+    if params[:l].nil?
+      @loan_applications = LoanApplication.all
+    else
+      #@loan_applications = LoanApplication.where("applicationStatus = ?", params[:l])
+
+      @loan_applications = LoanApplication.find_by_sql("SELECT * FROM loan_applications WHERE \"applicationstatus\" SIMILAR TO '%" + params[:l] + "%';")
+    end
+    
+  end
+  
+   def search
+    @loan_stat = LoanApplication.find_by applicationStatus: params[:l]
+    redirect_to :controller => 'loan_applications', :action => 'index', :l => params[:l]
   end
 
   # GET /loan_applications/1
@@ -76,6 +88,6 @@ class LoanApplicationsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def loan_application_params
       params.require(:loan_application).permit( :loan_type_id, :member_id, :applicationStatus, :dateFiled, :dateApproved, :dateReleased, :otherResources, :totalFamilyIncome, 
-      :realProperties, :remarks, :applicationType, :loanAmount, :termOfPayment, :paymentPerTerm, :panaltyAmount, :coMaker1_id,  :relationship1, :coMaker2_id, :relationship2)
+      :realProperties, :remarks, :applicationType, :loanAmount, :termOfPayment, :paymentPerTerm, :penaltyAmount, :coMaker1_id,  :relationship1, :coMaker2_id, :relationship2)
     end
 end
