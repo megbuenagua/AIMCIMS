@@ -1,5 +1,5 @@
 class CoMaker < ActiveRecord::Base
-  belongs_to :loan_applications
+ has_many :loan_applications
   
   validates :coMakerfname, presence: true
   validates :coMakermname, presence: true
@@ -10,6 +10,11 @@ class CoMaker < ActiveRecord::Base
   
   def cmfullname
   "#{coMakerfname}, #{coMakermname} #{coMakerlname} (#{coMakerId}) "
-end
-     
+  end
+  
+  def comaker1
+  co_maker.where(coMakerId: ':coMaker1_id').take
+  end
+
+    
 end

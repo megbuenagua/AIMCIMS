@@ -11,31 +11,32 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160126204140) do
+ActiveRecord::Schema.define(version: 20150223080551) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "admin_staffs", force: true do |t|
-    t.string   "staffId"
-    t.string   "name"
-    t.date     "dateHired"
-    t.string   "position"
+    t.integer  "staff_number"
+    t.string   "staff_name"
+    t.date     "date_hired"
+    t.string   "staff_position"
     t.string   "status"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "capital_build_ups", force: true do |t|
-    t.string   "memberId"
-    t.string   "membershipType"
-    t.date     "memberSince"
-    t.integer  "subscribedShares"
-    t.integer  "totalAmountShares"
-    t.decimal  "initialPayment"
-    t.decimal  "totalPaidAmount"
-    t.decimal  "paidSharesPercentage"
-    t.string   "termsOfPayment"
+    t.integer  "member_id"
+    t.string   "membership_type"
+    t.date     "member_since"
+    t.integer  "subscribed_shares"
+    t.decimal  "amount_per_shares"
+    t.decimal  "total_amount_shares"
+    t.decimal  "initial_payment"
+    t.decimal  "total_paid_amount"
+    t.decimal  "paid_shares_percentage"
+    t.string   "terms_of_payment"
     t.string   "status"
     t.text     "remarks"
     t.datetime "created_at"
@@ -43,85 +44,89 @@ ActiveRecord::Schema.define(version: 20160126204140) do
   end
 
   create_table "cbu_contributions", force: true do |t|
-    t.string   "memberID"
-    t.datetime "date"
+    t.integer  "member_id"
+    t.datetime "payment_date"
     t.decimal  "amount"
-    t.string   "OrNumber"
-    t.integer  "staffId"
+    t.string   "ornumber"
+    t.integer  "staff_id"
     t.text     "remarks"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "co_makers", force: true do |t|
-    t.string   "coMakerId"
-    t.string   "coMakerfname"
-    t.string   "coMakermname"
-    t.string   "coMakerlname"
+    t.integer  "comaker_number"
+    t.string   "comakerfname"
+    t.string   "comakermname"
+    t.string   "comakerlname"
     t.date     "birthdate"
     t.string   "address"
     t.string   "spouse"
-    t.string   "contactNumber"
+    t.string   "contact_number"
     t.string   "employer"
-    t.string   "employerAddress"
-    t.string   "employerContactNumber"
+    t.string   "employer_address"
+    t.string   "employer_contact_number"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "expenses", force: true do |t|
     t.string   "particulars"
-    t.date     "date"
+    t.date     "expense_date"
     t.decimal  "amount"
-    t.string   "approvedBy"
-    t.string   "receivedBy"
-    t.integer  "staffId"
+    t.string   "approved_by"
+    t.string   "received_by"
+    t.integer  "staff_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "loan_applications", force: true do |t|
-    t.date     "dateFiled"
-    t.date     "dateApproved"
-    t.date     "dateReleased"
-    t.text     "otherResources"
-    t.decimal  "totalFamilyIncome"
-    t.string   "realProperties"
+    t.string   "application_status"
+    t.date     "date_filed"
+    t.date     "date_approved"
+    t.date     "date_released"
+    t.text     "other_resources"
+    t.decimal  "total_family_income"
+    t.string   "real_properties"
     t.text     "remarks"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "loan_type_id"
-    t.integer  "member_id"
-    t.string   "memberId"
-    t.string   "applicationType"
-    t.decimal  "loanAmount"
-    t.string   "termOfPayment"
-    t.decimal  "paymentPerTerm"
-    t.integer  "coMaker1_id"
-    t.integer  "coMaker2_id"
+    t.string   "application_type"
+    t.decimal  "loan_amount"
+    t.string   "term_of_payment"
+    t.decimal  "payment_per_term"
+    t.decimal  "penalty_amount"
+    t.string   "comaker1"
+    t.string   "comaker2"
     t.string   "relationship1"
     t.string   "relationship2"
-    t.integer  "penaltyAmount"
-    t.string   "applicationStatus"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "member_id"
+    t.integer  "loan_type_id"
+    t.integer  "co_maker_id"
   end
 
+  add_index "loan_applications", ["co_maker_id"], name: "index_loan_applications_on_co_maker_id", using: :btree
+  add_index "loan_applications", ["loan_type_id"], name: "index_loan_applications_on_loan_type_id", using: :btree
+  add_index "loan_applications", ["member_id"], name: "index_loan_applications_on_member_id", using: :btree
+
   create_table "loan_payments", force: true do |t|
-    t.integer  "loanId"
-    t.string   "memberId"
-    t.date     "paymentDate"
+    t.integer  "loan_id"
+    t.integer  "member_id"
+    t.date     "payment_date"
     t.decimal  "amount"
-    t.string   "orNumber"
-    t.integer  "staffId"
+    t.string   "ornumber"
+    t.integer  "staff_id"
     t.text     "remarks"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "loan_types", force: true do |t|
-    t.string   "loanName"
-    t.decimal  "maxAmount"
-    t.decimal  "minAmmount"
-    t.decimal  "interestRate"
+    t.string   "loan_name"
+    t.decimal  "maxamount"
+    t.decimal  "minamount"
+    t.decimal  "interest"
     t.integer  "period"
     t.decimal  "penalty"
     t.datetime "created_at"
@@ -129,7 +134,6 @@ ActiveRecord::Schema.define(version: 20160126204140) do
   end
 
   create_table "login_accounts", force: true do |t|
-    t.string   "loginId"
     t.string   "username"
     t.string   "password"
     t.datetime "created_at"
@@ -137,54 +141,60 @@ ActiveRecord::Schema.define(version: 20160126204140) do
   end
 
   create_table "members", force: true do |t|
-    t.string   "memberId"
-    t.string   "firstname",            null: false
-    t.string   "middlename",           null: false
-    t.string   "lastname",             null: false
+    t.string   "member_number"
+    t.string   "firstname",              null: false
+    t.string   "middlename",             null: false
+    t.string   "lastname",               null: false
     t.string   "gender"
     t.date     "birthdate"
-    t.string   "permanentAddress"
-    t.string   "homeNumber"
-    t.string   "officeNumber"
-    t.string   "mobileNumber"
-    t.string   "personalEmail"
-    t.string   "civilSatus"
+    t.string   "permanent_address"
+    t.string   "home_number"
+    t.string   "office_number"
+    t.string   "mobile_number"
+    t.string   "personal_email"
+    t.string   "civil_status"
     t.string   "spouse"
-    t.string   "bankAccount"
-    t.boolean  "enrolledWithPostbank"
+    t.string   "occupation_of_spouse"
+    t.string   "spouse_contact"
+    t.string   "bank_account"
+    t.boolean  "enrolled_with_postbank"
     t.string   "employer"
-    t.string   "employerNumber"
-    t.string   "position"
-    t.string   "officeAddress"
-    t.string   "officeEmail"
-    t.date     "dateApproved"
+    t.string   "employer_number"
+    t.string   "work_position"
+    t.string   "office_address"
+    t.string   "office_email"
+    t.string   "membership_type"
+    t.date     "date_approved"
     t.text     "notes"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "membershipType"
-    t.string   "occupationOfSpouse"
-    t.string   "spouseOccupation"
-    t.string   "spouseContactNumber"
   end
 
   create_table "savings", force: true do |t|
-    t.string   "memberId"
-    t.datetime "dateTime"
+    t.integer  "member_id"
+    t.datetime "date_time"
     t.decimal  "amount"
-    t.string   "orNumber"
+    t.string   "ornumber"
+    t.integer  "staff_id"
+    t.text     "remarks"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "admin_staff_id"
   end
 
   create_table "withdrawals", force: true do |t|
-    t.string   "memberId"
-    t.datetime "date"
+    t.integer  "member_id"
+    t.datetime "date_time"
     t.decimal  "amount"
-    t.string   "orNumber"
-    t.integer  "staffId"
+    t.string   "ornumber"
+    t.integer  "staff_id"
+    t.text     "remarks"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_foreign_key "loan_applications", "co_makers", name: "comaker1"
+  add_foreign_key "loan_applications", "co_makers", name: "comaker2"
+  add_foreign_key "loan_applications", "loan_types", name: "loan_applications_loan_type_id_fk"
+  add_foreign_key "loan_applications", "members", name: "loan_applications_member_id_fk"
 
 end

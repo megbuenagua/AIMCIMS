@@ -1,5 +1,5 @@
 class CapitalBuildUp < ActiveRecord::Base
-  belongs_to :members
+  belongs_to :members, foreign_key: "member_id"
   has_many :capital_build_ups
   
   validates :memberId, presence: true

@@ -10,9 +10,7 @@ def fullname
   "#{lastname}, #{firstname} #{middlename} (#{memberId}) "
 end
 
-def comaker1
-co_maker.where(coMakerId: ':coMaker1_id').take
-end
+
 
 
 

@@ -2,13 +2,12 @@ class CreateLoanApplications < ActiveRecord::Migration
   def change
     create_table :loan_applications do |t|
      
-      t.integer :loan_type_id
-      t.integer :member_id
+      #t.integer :loan_type_id
+      #t.integer :member_id
       t.string :application_status
       t.date :date_filed
       t.date :date_approved
       t.date :date_released
-     
       t.text :other_resources
       t.decimal :total_family_income
       t.string :real_properties

@@ -20,7 +20,7 @@ class CreateMembers < ActiveRecord::Migration
       t.boolean :enrolled_with_postbank
       t.string :employer
       t.string :employer_number
-      t.string :position
+      t.string :work_position
       t.string :office_address
       t.string :office_email
       t.string :membership_type
