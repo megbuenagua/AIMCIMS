@@ -1,19 +1,20 @@
 class CoMaker < ActiveRecord::Base
  has_many :loan_applications
   
-  validates :coMakerfname, presence: true
-  validates :coMakermname, presence: true
-  validates :coMakerlname, presence: true
+  validates :comakerfname, presence: true
+  validates :comakermname, presence: true
+  validates :comakerlname, presence: true
   validates :birthdate, presence: true
   validates :address, presence: true
-  validates :contactNumber, presence: true
+  validates :contact_number, presence: true
   
   def cmfullname
-  "#{coMakerfname}, #{coMakermname} #{coMakerlname} (#{coMakerId}) "
+  "#{comakerfname}, #{comakermname} #{comakerlname} (#{comaker_number}) "
   end
   
   def comaker1
-  co_maker.where(coMakerId: ':coMaker1_id').take
+   #"#{comakerfname}, #{comakermname} #{comakerlname} (#{comaker_number}) "
+  #co_maker.where(comaker_number: ':comaker1').take
   end
 
     

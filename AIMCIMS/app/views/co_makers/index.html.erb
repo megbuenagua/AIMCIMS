@@ -19,10 +19,10 @@
   <tbody>
     <% @co_makers.each do |co_maker| %>
       <tr>
-        <td><%= co_maker.coMakerId %></td>
-        <td><%= co_maker.coMakerfname %></td>
-        <td><%= co_maker.coMakermname %></td>
-        <td><%= co_maker.coMakerlname %></td>
+        <td><%= co_maker.comaker_number %></td>
+        <td><%= co_maker.comakerfname %></td>
+        <td><%= co_maker.comakermname %></td>
+        <td><%= co_maker.comakerlname %></td>
        <td><%= co_maker.birthdate %></td>
        
         <td><%= link_to 'Show', co_maker %></td>

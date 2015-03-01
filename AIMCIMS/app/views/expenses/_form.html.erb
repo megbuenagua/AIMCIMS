@@ -16,24 +16,26 @@
     <%= f.text_field :particulars %>
   </div>
   <div class="field">
-    <%= f.label :date %><br>
-    <%= f.date_select :date %>
+    <%= f.label :expense_date %><br>
+    <%= f.date_select :expense_date %>
   </div>
   <div class="field">
     <%= f.label :amount %><br>
     <%= f.text_field :amount %>
   </div>
   <div class="field">
-    <%= f.label :approvedBy %><br>
-    <%= f.text_field :approvedBy %>
+    <%= f.label :approved_by %><br>
+    <%= f.text_field :approved_by %>
   </div>
   <div class="field">
-    <%= f.label :receivedBy %><br>
-    <%= f.text_field :receivedBy %>
+    <%= f.label :received_by %><br>
+    <%= f.text_field :received_by %>
   </div>
   <div class="field">
-    <%= f.label :staffId %><br>
-    <%= f.number_field :staffId %>
+    <%= f.label :staff_id %><br>
+      <div class="control-group">
+<%=collection_select( :expenses, :staff_id, AdminStaff.all, :id, :staff_name, {}, {:include_blank => true})%>
+</div>
   </div>
   <div class="actions">
     <%= f.submit %>

@@ -2,12 +2,12 @@
 
 <p>
   <strong>Member ID:</strong>
-  <%= @saving.memberId %>
+  <%= @saving.member_id %>
 </p>
 
 <p>
   <strong>Date and time of Payment:</strong>
-  <%= @saving.dateTime %>
+  <%= @saving.date_time %>
 </p>
 
 <p>
@@ -17,12 +17,13 @@
 
 <p>
   <strong>OR number:</strong>
-  <%= @saving.orNumber %>
+  <%= @saving.ornumber %>
 </p>
 
 <p>
   <strong>Staff ID:</strong>
-  <%= @saving.admin_staff_id %>
+  <%= @saving.staff_id %> -
+    <%= @staffname.name %>
 </p>
 
 <%= link_to 'Edit', edit_saving_path(@saving) %> |

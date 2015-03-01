@@ -13,7 +13,7 @@
 
   <div class="field">
     <label>Member ID:</label><br/>
-    <%= f.number_field :memberId , readonly: true %>
+    <%= f.number_field :member_number , readonly: true %>
   </div>
   <div class="field">
     <label>First Name:</label><br/>
@@ -42,36 +42,36 @@
   </div>
   <div class="field">
     <label>Permanent Address:</label><br/>
-    <%= f.text_field :permanentAddress %>
+    <%= f.text_field :permanent_address %>
   </div>
   <div class="field">
    <label>Home Number:</label><br/>
-    <%= f.number_field :homeNumber %>
+    <%= f.number_field :home_number %>
   </div>
   <div class="field">
    <label>Office Number:</label><br/>
-    <%= f.number_field :officeNumber %>
+    <%= f.number_field :office_number %>
   </div>
   <div class="field">
     <label>Mobile Number:</label><br/>
-    <%= f.number_field :mobileNumber %>
+    <%= f.number_field :mobile_number %>
   </div>
   <div class="field">
     <label>Personal Email Address:</label><br/>
-    <%= f.text_field :personalEmail %>
+    <%= f.text_field :personal_email %>
   </div>
   <div class="field">
     <label>Civil Status:</label><br/>
         
-    <%= f.radio_button(:civilSatus, "Single") %>
+    <%= f.radio_button(:civil_status, "Single") %>
 	<%= f.label(:p_B, "Single") %>
-	<%= f.radio_button(:civilSatus, "Married") %>
+	<%= f.radio_button(:civil_status, "Married") %>
 	<%= f.label(:p_M, "Married") %>
-	<%= f.radio_button(:civilSatus, "Widow") %>
+	<%= f.radio_button(:civil_status, "Widow") %>
 	<%= f.label(:p_S, "Widow") %>
-	<%= f.radio_button(:civilSatus, "Widower") %>
+	<%= f.radio_button(:civil_status, "Widower") %>
 	<%= f.label(:p_S, "Widower") %>
-	<%= f.radio_button(:civilSatus, "Divorced") %>
+	<%= f.radio_button(:civil_status, "Divorced") %>
 	<%= f.label(:p_M, "Divorced") %>
 	
   </div>
@@ -81,15 +81,15 @@
   </div>
   <div class="field">
     <label>Occupation of Spouse:</label><br/>
-    <%= f.text_field :occupationOfSpouse %>
+    <%= f.text_field :occupation_of_spouse %>
   </div>
   <div class="field">
     <label>Bank Account:</label><br/>
-    <%= f.text_field :bankAccount %>
+    <%= f.text_field :bank_account %>
   </div>
   <div class="field">
     <label>Enrolled with Postbank:</label><br/>
-    <%= f.check_box :enrolledWithPostbank %>
+    <%= f.check_box :enrolled_with_postbank %>
   </div>
   <div class="field">
     <%= f.label :employer %><br>
@@ -97,31 +97,31 @@
   </div>
   <div class="field">
     <label>Employer Number:</label><br/>
-    <%= f.number_field :employerNumber %>
+    <%= f.number_field :employer_number %>
   </div>
   <div class="field">
     <%= f.label :position %><br>
-    <%= f.text_field :position %>
+    <%= f.text_field :work_position %>
   </div>
   <div class="field">
    <label>Office Address:</label><br/>
-    <%= f.text_field :officeAddress %>
+    <%= f.text_field :office_address %>
   </div>
   <div class="field">
     <label>Office Email:</label><br/>
-    <%= f.text_field :officeEmail %>
+    <%= f.text_field :office_email %>
   </div>
   <div class="field">
     <label>Membership Type:</label><br/>
         
-    <%= f.radio_button(:membershipType, "Regular") %>
+    <%= f.radio_button(:membership_type, "Regular") %>
 	<%= f.label(:membershipType_R, "Regular") %>
-	<%= f.radio_button(:membershipType, "Associate") %>
+	<%= f.radio_button(:membership_type, "Associate") %>
 	<%= f.label(:membershipType_A, "Associate") %>
   </div>
   <div class="field">
     <label>Date Approved:</label><br/>
-    <%= f.date_select :dateApproved %>
+    <%= f.date_select :date_approved %>
   </div>
   <div class="field">
     <%= f.label :notes %><br>

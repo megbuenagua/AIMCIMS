@@ -10,8 +10,8 @@ class WithdrawalsController < ApplicationController
   # GET /withdrawals/1
   # GET /withdrawals/1.json
   def show
-  @staffname=AdminStaff.find(@withdrawal.staffId) 
-  @memberName = Member.find(@withdrawal.memberId)
+  @staffname=AdminStaff.find(@withdrawal.staff_id) 
+  @memberName = Member.find(@withdrawal.member_id)
   end
 
   # GET /withdrawals/new
@@ -71,6 +71,6 @@ class WithdrawalsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def withdrawal_params
-      params.require(:withdrawal).permit(:memberId, :date, :amount, :amount, :orNumber, :staffId)
+      params.require(:withdrawal).permit(:member_id, :date, :amount, :ornumber, :staff_id)
     end
 end

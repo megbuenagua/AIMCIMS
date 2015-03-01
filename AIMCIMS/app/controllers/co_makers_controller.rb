@@ -29,7 +29,7 @@ class CoMakersController < ApplicationController
     respond_to do |format|
       if @co_maker.save
       _date = DateTime.now.strftime('%Y%m%d%H%M')
-       @co_maker.coMakerId = "3" + _date
+       @co_maker.comaker_number = "3" + _date
        @co_maker.save
         format.html { redirect_to @co_maker, notice: 'Co maker was successfully created.' }
         format.json { render :show, status: :created, location: @co_maker }
@@ -72,6 +72,7 @@ class CoMakersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def co_maker_params
-      params.require(:co_maker).permit(:coMakerId, :coMakerfname, :coMakermname, :coMakerlname, :birthdate, :address, :spouse, :contactNumber, :employer, :employerAddress, :employerContactNumber)
+      params.require(:co_maker).permit(:comaker_number, :comakerfname, :comakermname, :comakerlname, 
+      :birthdate, :address, :spouse, :contact_number, :employer, :employer_address, :employer_contact_number)
     end
 end

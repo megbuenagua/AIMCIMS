@@ -7,11 +7,11 @@ has_many :saving
 has_many :withdrawal
 
 def fullname
-  "#{lastname}, #{firstname} #{middlename} (#{memberId}) "
+  "#{lastname}, #{firstname} #{middlename} (#{member_number}) "
 end
 
-
-
-
-
+def comaker1
+  "#{lastname}, #{firstname} #{middlename} (#{member_id}) "
+  end
+  
 end

@@ -30,7 +30,7 @@ class AdminStaffsController < ApplicationController
       if @admin_staff.save
        _date = DateTime.now.strftime('%Y%m%d%H%M')
         #_staff = 1
-        @admin_staff.staffId = "1" + _date
+        @admin_staff.staff_number= "1" + _date
         @admin_staff.save
         format.html { redirect_to @admin_staff, notice: 'Admin staff was successfully created.' }
         format.json { render :show, status: :created, location: @admin_staff }
@@ -73,6 +73,6 @@ class AdminStaffsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def admin_staff_params
-      params.require(:admin_staff).permit(:staffId, :name, :dateHired, :position, :status)
+      params.require(:admin_staff).permit(:staff_number, :staff_name, :date_hired, :staff_position, :status)
     end
 end

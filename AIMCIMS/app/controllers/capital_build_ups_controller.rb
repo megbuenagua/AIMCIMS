@@ -69,6 +69,6 @@ class CapitalBuildUpsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def capital_build_up_params
-      params.require(:capital_build_up).permit(:memberId, :membershipType, :memberSince, :subscribedShares, :totalAmountShares, :initialPayment, :totalPaidAmount, :paidSharesPercentage, :termsOfPayment, :status, :remarks)
+      params.require(:capital_build_up).permit(:member_id, :membership_type, :member_since, :subscribed_shares, :total_amount_shares, :amount_per_shares, :initial_payment, :total_paid_amount, :paid_shares_percentage, :terms_of_payment, :status, :remarks)
     end
 end

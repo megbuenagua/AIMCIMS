@@ -14,32 +14,29 @@
   
   <div class="field">
    <label>Loan Name:</label><br/>
-    <%= f.text_field :loanName %>
+    <%= f.text_field :loan_name %>
     
  
   </div>
   <div class="field">
    <label>Maximum Amount:</label><br/>
-    <%= f.text_field :maxAmount %>
+    <%= f.text_field :maxamount %>
   </div>
   <div class="field">
    <label>Minimum Amount:</label><br/>
-    <%= f.text_field :minAmmount %>
+    <%= f.text_field :minamount %>
   </div>
   <div class="field">
    <label>Interest Rate:</label><br/>
-    <%= f.text_field :interestRate %>
+    <%= f.text_field :interest %>
   </div>
   <div class="field">
-    <label>Period:</label><br/>
+    <label>Period:(month)</label><br/>
     <%= f.number_field :period %>
   </div>
-  <div class="field">
-    <label>Terms of Payment:</label><br/>
-     <%= f.text_field :termOfPayment %>
-  </div>
-  <div class="field">
-    <%= f.label :penalty %><br>
+  
+   <div class="field">
+    <label>Penalty:(percent)</label><br/>
     <%= f.text_field :penalty %>
   </div>
   <div class="actions">

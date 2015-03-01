@@ -17,7 +17,7 @@
   <tbody>
     <% @loan_types.each do |loan_type| %>
       <tr>
-        <td><%= loan_type.loanName %></td>
+        <td><%= loan_type.loan_name %></td>
        
         <td><%= link_to 'Show', loan_type %></td>
         <td><%= link_to 'Edit', edit_loan_type_path(loan_type) %></td>

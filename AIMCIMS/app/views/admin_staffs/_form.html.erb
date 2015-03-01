@@ -13,23 +13,23 @@
 
   <div class="field">
     <label>Staff ID:</label><br/>
-    <%= f.number_field :staffId, readonly:true %>
+    <%= f.number_field :staff_number, readonly:true %>
   </div>
   <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
+    <%= f.label :staff_name %><br>
+    <%= f.text_field :staff_name %>
   </div>
   <div class="field">
    <label>Date Hired</label><br/>
-    <%= f.date_select(:dateHired, start_year: 2010) %>
+    <%= f.date_select(:date_hired, start_year: 2010) %>
   </div>
   <div class="field">
   	<label>Position:</label><br/>
-    <%= f.radio_button(:position, "BOD") %>
+    <%= f.radio_button(:staff_position, "BOD") %>
 	<%= f.label(:p_B, "Board of Director") %>
-	<%= f.radio_button(:position, "Manager") %>
+	<%= f.radio_button(:staff_position, "Manager") %>
 	<%= f.label(:p_M, "Manager") %>
-	<%= f.radio_button(:position, "Staff") %>
+	<%= f.radio_button(:staff_position, "Staff") %>
 	<%= f.label(:p_S, "Staff") %>
   </div>
   <div class="field">

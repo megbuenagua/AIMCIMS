@@ -11,19 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150223080551) do
+ActiveRecord::Schema.define(version: 20150228152247) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "admin_staffs", force: true do |t|
-    t.integer  "staff_number"
     t.string   "staff_name"
     t.date     "date_hired"
     t.string   "staff_position"
     t.string   "status"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "staff_number"
   end
 
   create_table "capital_build_ups", force: true do |t|
@@ -55,7 +55,6 @@ ActiveRecord::Schema.define(version: 20150223080551) do
   end
 
   create_table "co_makers", force: true do |t|
-    t.integer  "comaker_number"
     t.string   "comakerfname"
     t.string   "comakermname"
     t.string   "comakerlname"
@@ -68,6 +67,7 @@ ActiveRecord::Schema.define(version: 20150223080551) do
     t.string   "employer_contact_number"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "comaker_number"
   end
 
   create_table "expenses", force: true do |t|

@@ -33,17 +33,17 @@
   <tbody>
     <% @members.each do |member| %>
       <tr>
-        <td><%= member.memberId %></td>
+        <td><%= member.member_number %></td>
         <td><%= member.firstname %></td>
         <td><%= member.middlename %></td>
         <td><%= member.lastname %></td>
         <td><%= member.gender %></td>
         <td><%= member.birthdate %></td>
         
-        <td><%= member.civilSatus %></td>
+        <td><%= member.civil_status %></td>
        
-        <td><%= member.membershipType %></td>
-        <td><%= member.dateApproved %></td>
+        <td><%= member.membership_type %></td>
+        <td><%= member.date_approved %></td>
         
         <td><%= link_to 'Show', member %></td>
         <td><%= link_to 'Edit', edit_member_path(member) %></td>

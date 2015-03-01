@@ -7,7 +7,7 @@
 
 <p>
   <strong>Date:</strong>
-  <%= @expense.date %>
+  <%= @expense.expense_date %>
 </p>
 
 <p>
@@ -17,17 +17,18 @@
 
 <p>
   <strong>Approvedby:</strong>
-  <%= @expense.approvedBy %>
+  <%= @expense.approved_by %>
 </p>
 
 <p>
   <strong>Receivedby:</strong>
-  <%= @expense.receivedBy %>
+  <%= @expense.received_by %>
 </p>
 
 <p>
   <strong>Staffid:</strong>
-  <%= @expense.staffId %>
+  <%= @expense.staff_id %> -
+    <%= @staffname.name %>
 </p>
 
 <%= link_to 'Edit', edit_expense_path(@expense) %> |

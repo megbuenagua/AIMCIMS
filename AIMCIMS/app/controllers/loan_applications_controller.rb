@@ -24,6 +24,8 @@ class LoanApplicationsController < ApplicationController
   def show
   @loan_type=LoanType.find( @loan_application.loan_type_id) 
   @memberName = Member.find(@loan_application.member_id)
+  @comakerName1 = CoMaker.find(@loan_application.comaker1)
+  @comakerName2 = CoMaker.find(@loan_application.comaker2)
   end
 
   # GET /loan_applications/new
@@ -87,7 +89,7 @@ class LoanApplicationsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def loan_application_params
-      params.require(:loan_application).permit( :loan_type_id, :member_id, :applicationStatus, :dateFiled, :dateApproved, :dateReleased, :otherResources, :totalFamilyIncome, 
-      :realProperties, :remarks, :applicationType, :loanAmount, :termOfPayment, :paymentPerTerm, :penaltyAmount, :coMaker1_id,  :relationship1, :coMaker2_id, :relationship2)
+      params.require(:loan_application).permit( :loan_type_id, :member_id, :application_status, :date_filed, :date_approved, :date_released, :other_resources, :total_family_income, 
+      :real_properties, :remarks, :application_type, :loan_amount, :term_of_payment, :payment_per_term, :penalty_amount, :comaker1,  :relationship1, :comaker2, :relationship2)
     end
 end

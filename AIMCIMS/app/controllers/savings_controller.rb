@@ -69,6 +69,6 @@ class SavingsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def saving_params
-      params.require(:saving).permit(:savingsId, :memberId, :dateTime, :amount, :orNumber, :staffed)
+      params.require(:saving).permit(:member_id, :date_time, :amount, :ornumber, :remarks, :staff_id)
     end
 end

@@ -15,7 +15,7 @@
   <div class="field">
     <label>Loan Type:</label><br/>
      <div class="control-group">
-<%=collection_select( :loan_application, :loan_type_id, LoanType.all, :id, :loanName, {}, { :multiple=> false})%>
+<%=collection_select( :loan_application, :loan_type_id, LoanType.all, :id, :loan_name, {}, { :include_blank => true})%>
 </div>
    </div>
    
@@ -30,71 +30,72 @@
   
   <div class="field">      
     <label>Application Type:</label><br/>
-    <%= f.radio_button(:applicationType, "New") %>
+    <%= f.radio_button(:application_type, "New") %>
 	<%= f.label(:as_N, "New") %>
-	<%= f.radio_button(:applicationType, "Renew") %>
+	<%= f.radio_button(:application_type, "Renew") %>
 	<%= f.label(:as_R, "Renew") %>
-	<%= f.radio_button(:applicationType, "Restructured") %>
+	<%= f.radio_button(:application_type, "Restructured") %>
 	<%= f.label(:as_Rs, "Restructured") %>
   </div>
   
   <div class="field">
     <label>Date Filed:</label><br/>
-    <%= f.date_select :dateFiled %>
+    <%= f.date_select :date_filed %>
   </div>
 
   <div class="field">
   <label>Loan Amount:</label><br/>
-    <%= f.text_field :loanAmount %>
+    <%= f.text_field :loan_amount %>
   </div>
   
   <div class="field">      
     <label>Term of Payment:</label><br/>
-    <%= f.radio_button(:termOfPayment, "Daily") %>
+    <%= f.radio_button(:term_of_payment, "Daily") %>
 	<%= f.label(:as_d, "Daily") %>
-	<%= f.radio_button(:termOfPayment, "Weekly") %>
+	<%= f.radio_button(:term_of_payment, "Weekly") %>
 	<%= f.label(:as_w, "Weekly") %>
-	<%= f.radio_button(:termOfPayment, "Monthly") %>
+	<%= f.radio_button(:term_of_payment, "Monthly") %>
 	<%= f.label(:as_m, "Monthly") %>
-	<%= f.radio_button(:termOfPayment, "Quarterly") %>
+	<%= f.radio_button(:term_of_payment, "Quarterly") %>
 	<%= f.label(:as_q, "Quarterly") %>
-	<%= f.radio_button(:termOfPayment, "Biannually") %>
+	<%= f.radio_button(:term_of_payment, "Biannually") %>
 	<%= f.label(:as_b, "Biannually") %>
-	<%= f.radio_button(:termOfPayment, "Annually") %>
+	<%= f.radio_button(:term_of_payment, "Annually") %>
 	<%= f.label(:as_a, "Annually") %>
   </div>
  
   <div class="field">
   <label>Payment per Term:</label><br/>
-    <%= f.text_field :paymentPerTerm %>
+    <%= f.text_field :payment_per_term %>
   </div>
   
   <div class="field">
   <label>Penalty:</label><br/>
-    <%= f.text_field :penaltyAmount %>
+    <%= f.text_field :penalty_amount %>
   </div>
   
   
   
   <div class="field">
   <label>Other Resources:</label><br/>
-    <%= f.text_area :otherResources %>
+    <%= f.text_area :other_resources %>
   </div>
   <div class="field">
     <label>Total Family Income:</label><br/>
-    <%= f.text_field :totalFamilyIncome %>
+    <%= f.text_field :total_family_income %>
   </div>
   <div class="field">
     <label>Real Properties:</label><br/>
-    <%= f.text_field :realProperties %>
+    <%= f.text_field :real_properties %>
   </div>
   
   <div class="field">
     <label>Co-Maker 1:</label><br/>
     <div class="control-group">
-<%=collection_select( :loan_application, :coMaker1_id, CoMaker.all, :id, :cmfullname, {:include_blank => true})%>
+<%=collection_select( :loan_application, :comaker1, CoMaker.all, :id, :cmfullname, {:include_blank => true})%>
   </div>
   </div>
+  
   <div class="field">
     <label>Relationship to the applicant:</label><br/>
     <%= f.text_field :relationship1 %>
@@ -105,7 +106,7 @@
   <div class="control-group">
   	<label>Co-maker 2:</label><br/>
   		<div class="controls">
-  		<%= collection_select( :loan_application, :coMaker2_id, CoMaker.all, :id, :cmfullname, {:include_blank => true}) %>
+  		<%= collection_select( :loan_application, :comaker2, CoMaker.all, :id, :cmfullname, {:include_blank => true}) %>
 		</div>
 	</div>
     
@@ -126,19 +127,19 @@
   
   <div class="field">      
     <label>Application Status:</label><br/>
-    <%= f.radio_button(:applicationStatus, "Pending") %>
+    <%= f.radio_button(:application_status, "Pending") %>
 	<%= f.label(:as_P, "Pending") %>
-	<%= f.radio_button(:applicationStatus, "Approved") %>
+	<%= f.radio_button(:application_status, "Approved") %>
 	<%= f.label(:as_A, "Approved") %>
-	<%= f.radio_button(:applicationStatus, "Rejected") %>
+	<%= f.radio_button(:application_status, "Rejected") %>
 	<%= f.label(:as_R, "Rejected") %>
   </div>
     <div class="field">
    <label>Date Approved:YYYY-MM-DD (ex. 2015-01-01)</label><br/>
-   <%= f.date_field :dateApproved %>
+   <%= f.date_field :date_approved %>
   </div>
   <div class="field">
     <label>Date Released: YYYY-MM-DD (ex. 2015-01-01)</label><br/>
-   <%= f.date_field :dateReleased %>
+   <%= f.date_field :date_released %>
   </div>
 <% end %>

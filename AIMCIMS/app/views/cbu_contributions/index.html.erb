@@ -20,11 +20,11 @@
   <tbody>
     <% @cbu_contributions.each do |cbu_contribution| %>
       <tr>
-        <td><%= cbu_contribution.memberID %></td>
-        <td><%= cbu_contribution.date %></td>
+        <td><%= cbu_contribution.member_id %></td>
+        <td><%= cbu_contribution.payment_date %></td>
         <td><%= cbu_contribution.amount %></td>
-        <td><%= cbu_contribution.OrNumber %></td>
-        <td><%= cbu_contribution.staffId %></td>
+        <td><%= cbu_contribution.ornumber %></td>
+        <td><%= cbu_contribution.staff_id %></td>
         <td><%= cbu_contribution.remarks %></td>
         <td><%= link_to 'Show', cbu_contribution %></td>
         <td><%= link_to 'Edit', edit_cbu_contribution_path(cbu_contribution) %></td>

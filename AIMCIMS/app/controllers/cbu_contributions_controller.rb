@@ -69,6 +69,6 @@ class CbuContributionsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def cbu_contribution_params
-      params.require(:cbu_contribution).permit(:memberID, :date, :amount, :OrNumber, :staffId, :remarks)
+      params.require(:cbu_contribution).permit(:memberID, :payment_date, :amount, :ornumber, :staff_id, :remarks)
     end
 end

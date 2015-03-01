@@ -1,27 +1,29 @@
 <h1>Listing expenses</h1>
 
+<%= link_to 'New Expense', new_expense_path %></br></br>
+
 <table>
   <thead>
     <tr>
       <th>Particulars</th>
       <th>Date</th>
       <th>Amount</th>
-      <th>Approvedby</th>
-      <th>Receivedby</th>
-      <th>Staffid</th>
+      <th>Approved by</th>
+      <th>Received by</th>
+      <th>Staff</th>
       <th colspan="3"></th>
     </tr>
-  </thead>
+  </thead> 
 
   <tbody>
     <% @expenses.each do |expense| %>
       <tr>
         <td><%= expense.particulars %></td>
-        <td><%= expense.date %></td>
+        <td><%= expense.expense_date %></td>
         <td><%= expense.amount %></td>
-        <td><%= expense.approvedBy %></td>
-        <td><%= expense.receivedBy %></td>
-        <td><%= expense.staffId %></td>
+        <td><%= expense.approved_by %></td>
+        <td><%= expense.received_by %></td>
+        <td><%= expense.staff_id %></td>
         <td><%= link_to 'Show', expense %></td>
         <td><%= link_to 'Edit', edit_expense_path(expense) %></td>
         <td><%= link_to 'Destroy', expense, method: :delete, data: { confirm: 'Are you sure?' } %></td>

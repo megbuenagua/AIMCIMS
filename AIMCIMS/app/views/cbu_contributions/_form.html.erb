@@ -13,11 +13,13 @@
 
   <div class="field">
     <label>Member ID:</label><br/>
-    <%= f.number_field :memberID %>
+   <div class="controls">
+  			<%= collection_select( :cbu_contributions, :member_id, Member.all, :id, :fullname, {:include_blank => true} ) %>
+		</div>
   </div>
   <div class="field">
-    <%= f.label :date %><br>
-    <%= f.datetime_select :date %>
+    <%= f.label :payment_date %><br>
+    <%= f.datetime_select :payment_date %>
   </div>
   <div class="field">
     <%= f.label :amount %><br>
@@ -25,11 +27,11 @@
   </div>
   <div class="field">
   <label>OR Number:</label><br/>
-    <%= f.text_field :OrNumber %>
+    <%= f.text_field :ornumber %>
   </div>
   <div class="field">
     <label>Staff ID:</label><br/>
-    <%= f.number_field :staffId %>
+    <%= f.number_field :staff_id %>
   </div>
   <div class="field">
     <%= f.label :remarks %><br>

@@ -14,40 +14,44 @@
   <div class="control-group">
   	<%=f.label :member, class: 'control-group' %>
   		<div class="controls">
-  			<%= collection_select( :capital_build_up, :id, Member.all, :id, :fullname, {}) %>
+  			<%= collection_select( :capital_build_up, :id, Member.all, :id, :fullname, {:include_blank => true}) %>
 		</div>
 	</div>
   <div class="field">
    <label>Membership Type:</label><br/>
-    <%= f.text_field :membershipType %>
+    <%= f.text_field :membership_type %>
   </div>
   <div class="field">
    <label>Member Since:</label><br/>
-    <%= f.date_select :memberSince %>
+    <%= f.date_select :member_since %>
   </div>
   <div class="field">
    <label>Subscribed Shares:</label><br/>
-    <%= f.number_field :subscribedShares %>
+    <%= f.number_field :subscribed_shares %>
+  </div>
+  <div class="field">
+    <label>Amount per Share:</label><br/>
+    <%= f.number_field :amount_per_shares %>
   </div>
   <div class="field">
     <label>Total Amount of Shares:</label><br/>
-    <%= f.number_field :totalAmountShares %>
+    <%= f.number_field :total_amount_shares %>
   </div>
   <div class="field">
     <label>Initial Payment:</label><br/>
-    <%= f.text_field :initialPayment %>
+    <%= f.text_field :initial_payment %>
   </div>
   <div class="field">
     <label>Total Paid Amount:</label><br/>
-    <%= f.text_field :totalPaidAmount %>
+    <%= f.text_field :total_paid_amount %>
   </div>
   <div class="field">
     <label>Paid Shares Percentage:</label><br/>
-    <%= f.text_field :paidSharesPercentage %>
+    <%= f.text_field :paid_shares_percentage %>
   </div>
   <div class="field">
     <label>Terms of Payment:</label><br/>
-    <%= f.text_field :termsOfPayment %>
+    <%= f.text_field :terms_of_payment %>
   </div>
   <div class="field">
     <label>Status:</label><br/>

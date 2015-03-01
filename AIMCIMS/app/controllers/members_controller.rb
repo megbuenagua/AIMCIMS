@@ -40,7 +40,7 @@ class MembersController < ApplicationController
       if @member.save
         _date = DateTime.now.strftime('%Y%m%d%H%M')
         #_sequence = @member.id
-        @member.memberId = "2" + _date
+        @member.member_number = "2" + _date
         @member.save
         format.html { redirect_to @member, notice: 'Member was successfully created.' }
         format.json { render :show, status: :created, location: @member }
@@ -83,6 +83,8 @@ class MembersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def member_params
-      params.require(:member).permit(:memberId, :firstname, :middlename, :lastname, :gender, :birthdate, :permanentAddress, :homeNumber, :officeNumber, :mobileNumber, :personalEmail, :civilSatus, :spouse, :occupationOfSpouse, :bankAccount, :enrolledWithPostbank, :employer, :employerNumber, :position, :officeAddress, :officeEmail, :membershipType, :dateApproved, :notes)
+      params.require(:member).permit(:member_number, :firstname, :middlename, :lastname, :gender, :birthdate, :permanent_address,
+       :home_number, :office_number, :mobile_number, :personal_Email, :civil_status, :spouse, :occupation_of_spouse, :bank_account, 
+       :enrolled_with_postbank, :employer, :employer_number, :position, :office_address, :office_email, :membership_type, :date_approved, :notes)
     end
 end

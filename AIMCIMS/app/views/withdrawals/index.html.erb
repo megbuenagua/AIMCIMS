@@ -19,10 +19,10 @@
   <tbody>
     <% @withdrawals.each do |withdrawal| %>
       <tr>
-        <td><%= withdrawal.memberId %></td>
-        <td><%= withdrawal.date %></td>
+        <td><%= withdrawal.member_id %></td>
+        <td><%= withdrawal.date_time %></td>
         <td><%= withdrawal.amount %></td>  
-        <td><%= withdrawal.orNumber %></td>
+        <td><%= withdrawal.ornumber %></td>
         <td><%= link_to 'Show', withdrawal %></td>
         <td><%= link_to 'Edit', edit_withdrawal_path(withdrawal) %></td>
         <td><%= link_to 'Destroy', withdrawal, method: :delete, data: { confirm: 'Are you sure?' } %></td>

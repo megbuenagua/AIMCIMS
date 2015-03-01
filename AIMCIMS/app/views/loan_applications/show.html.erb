@@ -3,7 +3,7 @@
 <p>
   <strong>Loan type ID:</strong>
   <%= @loan_application.loan_type_id %> :
-  <%= @loan_type.loanName %>
+  <%= @loan_type.loan_name %>
 </p>
 
 <p>
@@ -14,47 +14,48 @@
 
 <p>
   <strong>Application Type:</strong>
-  <%= @loan_application.applicationType %>
+  <%= @loan_application.application_type %>
 </p>
 
 <p>
   <strong>Date filed:</strong>
-  <%= @loan_application.dateFiled %>
+  <%= @loan_application.date_filed %>
 </p>
 
 <p>
   <strong>Loan Amount:</strong>
-  <%= @loan_application.loanAmount %>
+  <%= @loan_application.loan_amount %>
 </p>
 
 <p>
   <strong>Term of Payment:</strong>
-  <%= @loan_application.termOfPayment%>
+  <%= @loan_application.term_of_payment%>
 </p>
 
 <p>
   <strong>Penalty:</strong>
-  <%= @loan_application.penaltyAmount%>
+  <%= @loan_application.penalty_amount%>
 </p>
 
 <p>
   <strong>Other resources:</strong>
-  <%= @loan_application.otherResources %>
+  <%= @loan_application.other_resources %>
 </p>
 
 <p>
   <strong>Total family income:</strong>
-  <%= @loan_application.totalFamilyIncome %>
+  <%= @loan_application.total_family_income %>
 </p>
 
 <p>
   <strong>Real properties:</strong>
-  <%= @loan_application.realProperties %>
+  <%= @loan_application.real_properties %>
 </p>
 
 <p>
   <strong>Co-Maker 1:</strong>
-  <%= @loan_application.coMaker1_id %>
+  <%= @loan_application.comaker1%>-
+  <%= @comakerName1.cmfullname %>
 </p>
 
 <p>
@@ -64,7 +65,8 @@
 
 <p>
   <strong>Co-Maker 2:</strong>
-  <%= @loan_application.coMaker2_id %>
+  <%= @loan_application.comaker2 %>-
+  <%= @comakerName2.cmfullname %>
 </p>
 
 <p>
@@ -79,17 +81,17 @@
 
 <p>
   <strong>Application status:</strong>
-  <%= @loan_application.applicationStatus %>
+  <%= @loan_application.application_status %>
 </p>
 
 <p>
   <strong>Date approved:</strong>
-  <%= @loan_application.dateApproved %>
+  <%= @loan_application.date_approved %>
 </p>
 
 <p>
   <strong>Date released:</strong>
-  <%= @loan_application.dateReleased %>
+  <%= @loan_application.date_released %>
 </p>
 
 <%= link_to 'Edit', edit_loan_application_path(@loan_application) %> |

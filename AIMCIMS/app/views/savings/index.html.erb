@@ -20,11 +20,11 @@
   <tbody>
     <% @savings.each do |saving| %>
       <tr>
-        <td><%= saving.memberId %></td>
-        <td><%= saving.dateTime %></td>
+        <td><%= saving.member_id %></td>
+        <td><%= saving.date_time %></td>
         <td><%= saving.amount %></td>
-        <td><%= saving.orNumber %></td>
-        <td><%= saving.admin_staff_id %></td>
+        <td><%= saving.ornumber %></td>
+        <td><%= saving.staff_id %></td>
         <td><%= link_to 'Show', saving %></td>
         <td><%= link_to 'Edit', edit_saving_path(saving) %></td>
         <td><%= link_to 'Destroy', saving, method: :delete, data: { confirm: 'Are you sure?' } %></td>
