@@ -6,10 +6,12 @@ class ExpensesController < ApplicationController
   def index
     @expenses = Expense.all
   end
+  
 
   # GET /expenses/1
   # GET /expenses/1.json
   def show
+   @staffname=AdminStaff.find(@expense.staff_id) 
   end
 
   # GET /expenses/new

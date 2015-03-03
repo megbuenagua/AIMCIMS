@@ -4,12 +4,24 @@ class SavingsController < ApplicationController
   # GET /savings
   # GET /savings.json
   def index
-    @savings = Saving.all
+   
+    if params[:q].nil?
+      @savings = Saving.all
+    else
+      #@savings = Saving.find_by_sql("SELECT * FROM savings WHERE member_id=" + params[:q])
+      @savings = Saving.find_by_sql("SELECT * FROM savings INNER JOIN members ON  members.id = savings.member_id WHERE lower("+params[:r]+ ") LIKE '" +params[:q]+ "%'")
+    end
   end
 
+def search
+    redirect_to :controller => 'savings', :action => 'index', :q => params[:q], :r => params[:r]
+  end
   # GET /savings/1
   # GET /savings/1.json
   def show
+   @staffname=AdminStaff.find(@saving.staff_id) 
+   @memberName = Member.find(@saving.member_id)
+
   end
 
   # GET /savings/new

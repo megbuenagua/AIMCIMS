@@ -5,16 +5,14 @@ class MembersController < ApplicationController
   # GET /members.json
   def index
     if params[:q].nil?
-      @members = Member.all
+      @members = Member.all.order('lastname ASC')
     else
-      #@members = Member.where(lastname: params[:q])
-      @members = Member.find_by_sql("SELECT * FROM members WHERE lower(lastname) similar to \'%" + params[:q] + "%\'")
+      @members = Member.find_by_sql("SELECT * FROM members WHERE lower(" + params[:r]+ ") similar to '" + params[:q] + "%\'ORDER BY lastname")
     end
   end
   
   def search
-    @memberln = Member.find_by lastname: params[:q]
-    redirect_to :controller => 'members', :action => 'index', :q => params[:q]
+    redirect_to :controller => 'members', :action => 'index', :r => params[:r], :q => params[:q]
   end
 
   # GET /members/1

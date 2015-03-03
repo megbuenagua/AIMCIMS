@@ -9,7 +9,8 @@
 
 <%= form_tag("/members/search", method: "get") do %>
   <%= label_tag(:q, "Search for:") %>
-  <%= text_field_tag(:q) %>
+  <%= text_field_tag(:q) %>   By:
+    <%= select_tag :r, options_for_select([ " ","lastname", "gender", "membership_type","member_number"], " ")%>
   <%= submit_tag("Search") %>
 <% end %>
  
@@ -33,15 +34,13 @@
   <tbody>
     <% @members.each do |member| %>
       <tr>
-        <td><%= member.member_number %></td>
+        <td><%= member.member_number %>:</td>
+        <td><%= member.lastname %>,</td>
         <td><%= member.firstname %></td>
         <td><%= member.middlename %></td>
-        <td><%= member.lastname %></td>
         <td><%= member.gender %></td>
         <td><%= member.birthdate %></td>
-        
         <td><%= member.civil_status %></td>
-       
         <td><%= member.membership_type %></td>
         <td><%= member.date_approved %></td>
         

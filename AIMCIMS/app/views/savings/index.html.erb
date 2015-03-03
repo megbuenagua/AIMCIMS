@@ -5,10 +5,17 @@
 <br/>
 <br/> 
 
+<%= form_tag("/savings/search", method: "get") do %>
+  <%= label_tag(:q, "Search for:") %>
+  <%= text_field_tag(:q) %> By:
+  <%= select_tag :r, options_for_select([ " ","lastname", "member_number"], " ")%>
+  <%= submit_tag("Search") %>
+<% end %>
+
 <table>
   <thead>
     <tr>
-      <th>Memberid</th>
+      <th>Member ID</th>
       <th>Date and time</th>
       <th>Amount</th>
       <th>OR number</th>

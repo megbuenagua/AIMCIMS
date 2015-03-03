@@ -24,17 +24,17 @@
     <%= f.text_field :amount %>
   </div>
   <div class="field">
-    <%= f.label :approved_by %><br>
+   <label>Approved by:</label><br/>
     <%= f.text_field :approved_by %>
   </div>
   <div class="field">
-    <%= f.label :received_by %><br>
+    <label>Received by:</label><br/>
     <%= f.text_field :received_by %>
   </div>
   <div class="field">
-    <%= f.label :staff_id %><br>
+   <label>Staff:</label><br/>
       <div class="control-group">
-<%=collection_select( :expenses, :staff_id, AdminStaff.all, :id, :staff_name, {}, {:include_blank => true})%>
+<%=collection_select( :expense, :staff_id, AdminStaff.all, :id, :staff_name, {}, {:include_blank => true})%>
 </div>
   </div>
   <div class="actions">

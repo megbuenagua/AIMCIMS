@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150228152247) do
+ActiveRecord::Schema.define(version: 20150302184507) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -192,8 +192,6 @@ ActiveRecord::Schema.define(version: 20150228152247) do
     t.datetime "updated_at"
   end
 
-  add_foreign_key "loan_applications", "co_makers", name: "comaker1"
-  add_foreign_key "loan_applications", "co_makers", name: "comaker2"
   add_foreign_key "loan_applications", "loan_types", name: "loan_applications_loan_type_id_fk"
   add_foreign_key "loan_applications", "members", name: "loan_applications_member_id_fk"
 

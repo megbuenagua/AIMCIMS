@@ -14,8 +14,9 @@
   
   <div class="field">
     <label>Member ID:</label><br/>
-    <div class="controls">
-  			<%= collection_select( :savings, :member_id, Member.all, :id, :fullname, {:include_blank => true} ) %>
+    <div class="control-group">
+  		<%= collection_select(:saving, :member_id, Member.all, :id, :fullname, {:include_blank => true} ) %>
+	
 		</div>
   </div>
   <div class="field">
@@ -33,8 +34,8 @@
   <div class="field">
     <label>Staff ID:</label><br/>
     <div class="controls">
-  			<%= collection_select( :savings, :staff_id, AdminStaff.all, :id, :staff_name, {:include_blank => true} ) %></br></br>
-		</div>
+  	<%= collection_select( :saving, :staff_id, AdminStaff.all, :id, :staff_name, {:include_blank => true} ) %></br></br>
+	</div>
   </div>
   <div class="actions">
     <%= f.submit %>

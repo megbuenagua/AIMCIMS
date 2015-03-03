@@ -2,7 +2,8 @@
 
 <p>
   <strong>Member ID:</strong>
-  <%= @saving.member_id %>
+  <%= @saving.member_id %> -
+    <%= @memberName.fullname %>
 </p>
 
 <p>
@@ -23,7 +24,7 @@
 <p>
   <strong>Staff ID:</strong>
   <%= @saving.staff_id %> -
-    <%= @staffname.name %>
+    <%= @staffname.staff_name %>
 </p>
 
 <%= link_to 'Edit', edit_saving_path(@saving) %> |

@@ -7,15 +7,17 @@ class LoanApplicationsController < ApplicationController
     if params[:l].nil?
       @loan_applications = LoanApplication.all
     else
-      #@loan_applications = LoanApplication.where("applicationStatus = ?", params[:l])
+      @loan_applications = LoanApplication.where("application_status = ?", params[:l])
 
-      @loan_applications = LoanApplication.find_by_sql("SELECT * FROM loan_applications WHERE \"applicationstatus\" SIMILAR TO '%" + params[:l] + "%';")
+      #@loan_applications = LoanApplication.find_by_sql("SELECT * FROM loan_applications WHERE application_status SIMILAR TO '%" + params[:l] + "%';")
+       #@loan_applications = LoanApplication.where("applicationStatus = ?", params[:l])
+
     end
     
   end
   
    def search
-    @loan_stat = LoanApplication.find_by applicationStatus: params[:l]
+    #@loan_stat = LoanApplication.find_by application_status: params[:l]
     redirect_to :controller => 'loan_applications', :action => 'index', :l => params[:l]
   end
 

@@ -1,3 +1,3 @@
 class LoanPayment < ActiveRecord::Base
-  belongs_to :loan_application
+  belongs_to :loan_applications
 end

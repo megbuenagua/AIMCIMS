@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   root 'welcome#index'
   get '/members/search' => 'members#search'
   get '/loan_applications/search' => 'loan_applications#search'
+  get '/savings/search' => 'savings#search'
  
   resources :expenses
 
