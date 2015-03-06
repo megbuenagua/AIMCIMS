@@ -6,7 +6,7 @@ class SavingsController < ApplicationController
   def index
    
     if params[:q].nil?
-      @savings = Saving.all
+      @savings = Saving.find_by_sql("SELECT * FROM savings INNER JOIN members ON  members.id = savings.member_id" )
     else
       #@savings = Saving.find_by_sql("SELECT * FROM savings WHERE member_id=" + params[:q])
       @savings = Saving.find_by_sql("SELECT * FROM savings INNER JOIN members ON  members.id = savings.member_id WHERE lower("+params[:r]+ ") LIKE '" +params[:q]+ "%'")
@@ -21,7 +21,7 @@ def search
   def show
    @staffname=AdminStaff.find(@saving.staff_id) 
    @memberName = Member.find(@saving.member_id)
-
+   
   end
 
   # GET /savings/new

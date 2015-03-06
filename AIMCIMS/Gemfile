@@ -1,5 +1,11 @@
 source 'https://rubygems.org'
 
+#Amazon web services
+gem 'aws-sdk'
+
+#images
+gem 'paperclip'
+
 gem 'foreigner'
 gem 'pg'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'

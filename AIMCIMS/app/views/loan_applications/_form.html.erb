@@ -48,6 +48,11 @@
     <%= f.text_field :loan_amount %>
   </div>
   
+  <div class="field">
+  <label>Period(in month/s):</label><br/>
+    <%= f.text_field :loan_period %>
+  </div>
+  
   <div class="field">      
     <label>Term of Payment:</label><br/>
     <%= f.radio_button(:term_of_payment, "Daily") %>

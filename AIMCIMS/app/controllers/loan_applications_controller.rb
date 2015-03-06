@@ -5,12 +5,14 @@ class LoanApplicationsController < ApplicationController
   # GET /loan_applications.json
   def index
     if params[:l].nil?
-      @loan_applications = LoanApplication.all
+      @loan_applications = LoanApplication.find_by_sql("SELECT * FROM loan_applications INNER JOIN members ON  members.id = loan_applications.member_id 
+INNER JOIN loan_types ON  loan_types.id = loan_applications.loan_type_id")
     else
-      @loan_applications = LoanApplication.where("application_status = ?", params[:l])
+      #@loan_applications = LoanApplication.where("application_status = ?", params[:l])
 
       #@loan_applications = LoanApplication.find_by_sql("SELECT * FROM loan_applications WHERE application_status SIMILAR TO '%" + params[:l] + "%';")
-       #@loan_applications = LoanApplication.where("applicationStatus = ?", params[:l])
+      @loan_applications =LoanApplication.find_by_sql("SELECT * FROM loan_applications INNER JOIN members ON  members.id = loan_applications.member_id 
+INNER JOIN loan_types ON  loan_types.id = loan_applications.loan_type_id WHERE lower(" + params[:r]+ ") similar to '" + params[:l]+ "%';")
 
     end
     
@@ -18,7 +20,7 @@ class LoanApplicationsController < ApplicationController
   
    def search
     #@loan_stat = LoanApplication.find_by application_status: params[:l]
-    redirect_to :controller => 'loan_applications', :action => 'index', :l => params[:l]
+    redirect_to :controller => 'loan_applications', :action => 'index', :l => params[:l], :r => params[:r]
   end
 
   # GET /loan_applications/1

@@ -10,15 +10,19 @@
 
 <%= form_tag("/loan_applications/search", method: "get") do %>
   <%= label_tag(:l, "Search for:") %>
-  <%= text_field_tag(:l) %>
+  <%= text_field_tag(:l) %> By:
+   <%= select_tag :r, options_for_select([ " ","lastname","member_number", "loan_type", "application_status"], " ")%>
   <%= submit_tag("Search") %>
 <% end %>
   
 <table>
   <thead>
     <tr>
-      <th>Loan type ID</th>
-      <th>Member id</th>
+      <th>LT.ID</th>
+      <th>Loan type</th>
+      <th>M.ID</th>
+      <th>Member Number</th>
+       <th>Member Name</th>
       <th>Date Filed</th>
       <th>Application Status</th>
       <th>Date Approved</th>
@@ -32,8 +36,10 @@
     <% @loan_applications.each do |loan_application| %>
       <tr>
         <td><%= loan_application.loan_type_id%> </td>
+        <td><%= loan_application.loan_name%> </td>
         <td><%= loan_application.member_id %></td>
-       
+        <td><%= loan_application.member_number %></td>
+        <td><%= loan_application.lastname %></td>
         <td><%= loan_application.date_filed %></td>
          <td><%= loan_application.application_status %></td>
         <td><%= loan_application.date_approved %></td>

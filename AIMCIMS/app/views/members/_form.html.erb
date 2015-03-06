@@ -113,7 +113,8 @@
   </div>
   <div class="field">
     <label>Membership Type:</label><br/>
-        
+    <%= f.radio_button(:membership_type, "New") %>
+	<%= f.label(:membershipType_N, "New") %>     
     <%= f.radio_button(:membership_type, "Regular") %>
 	<%= f.label(:membershipType_R, "Regular") %>
 	<%= f.radio_button(:membership_type, "Associate") %>

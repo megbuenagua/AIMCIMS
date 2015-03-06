@@ -6,14 +6,14 @@ Rails.application.routes.draw do
   get '/loan_applications/search' => 'loan_applications#search'
   get '/savings/search' => 'savings#search'
  
-  resources :expenses
-
-  resources :withdrawals
-
   resources :capital_build_ups
-   
+  
+  resources :cbu_contributions
+  
   resources :co_makers
 
+  resources :expenses
+  
   resources :loan_payments
 
   resources :loan_applications
@@ -23,12 +23,12 @@ Rails.application.routes.draw do
   resources :login_accounts
 
   resources :admin_staffs
-
-  resources :cbu_contributions
-
-  resources :savings
-
+ 
   resources :members 
+  
+  resources :savings
+  
+  resources :withdrawals
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

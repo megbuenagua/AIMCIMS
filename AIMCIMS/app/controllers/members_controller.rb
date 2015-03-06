@@ -8,6 +8,7 @@ class MembersController < ApplicationController
       @members = Member.all.order('lastname ASC')
     else
       @members = Member.find_by_sql("SELECT * FROM members WHERE lower(" + params[:r]+ ") similar to '" + params[:q] + "%\'ORDER BY lastname")
+
     end
   end
   
@@ -18,6 +19,12 @@ class MembersController < ApplicationController
   # GET /members/1
   # GET /members/1.json
   def show
+   #@members = Member.all
+   #@savings =  Member.find(@member.id)
+   @memberSavings = @member.id
+   @savings = Saving.find_by_sql("SELECT * FROM savings INNER JOIN members ON  members.id = savings.member_id WHERE member_id =" + @memberSavings.to_s )
+   @withdrawals = Withdrawal.find_by_sql("SELECT * FROM withdrawals INNER JOIN members ON  members.id = withdrawals.member_id WHERE member_id =" + @memberSavings.to_s )
+
   end
   
   # GET /members/new
@@ -41,6 +48,7 @@ class MembersController < ApplicationController
         @member.member_number = "2" + _date
         @member.save
         format.html { redirect_to @member, notice: 'Member was successfully created.' }
+        format.html { redirect_to new_saving_url(:member_id => @member.id) }
         format.json { render :show, status: :created, location: @member }
       else
         format.html { render :new }
