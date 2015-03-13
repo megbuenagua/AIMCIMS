@@ -5,7 +5,10 @@ Rails.application.routes.draw do
   get '/members/search' => 'members#search'
   get '/loan_applications/search' => 'loan_applications#search'
   get '/savings/search' => 'savings#search'
- 
+  get '/loan_payments/checkmember' => 'loan_payments#checkmember'
+  #get '/members/:id', to: 'savings#new', as: 'member'
+  get '/savings/member'=> 'savings#member'
+  
   resources :capital_build_ups
   
   resources :cbu_contributions

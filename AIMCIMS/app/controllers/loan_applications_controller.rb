@@ -8,12 +8,8 @@ class LoanApplicationsController < ApplicationController
       @loan_applications = LoanApplication.find_by_sql("SELECT * FROM loan_applications INNER JOIN members ON  members.id = loan_applications.member_id 
 INNER JOIN loan_types ON  loan_types.id = loan_applications.loan_type_id")
     else
-      #@loan_applications = LoanApplication.where("application_status = ?", params[:l])
-
-      #@loan_applications = LoanApplication.find_by_sql("SELECT * FROM loan_applications WHERE application_status SIMILAR TO '%" + params[:l] + "%';")
       @loan_applications =LoanApplication.find_by_sql("SELECT * FROM loan_applications INNER JOIN members ON  members.id = loan_applications.member_id 
 INNER JOIN loan_types ON  loan_types.id = loan_applications.loan_type_id WHERE lower(" + params[:r]+ ") similar to '" + params[:l]+ "%';")
-
     end
     
   end
@@ -26,10 +22,20 @@ INNER JOIN loan_types ON  loan_types.id = loan_applications.loan_type_id WHERE l
   # GET /loan_applications/1
   # GET /loan_applications/1.json
   def show
+  
   @loan_type=LoanType.find( @loan_application.loan_type_id) 
   @memberName = Member.find(@loan_application.member_id)
+  
+  if @loan_application.comaker2.nil?
+   @comakerName2 = CoMaker.new  
+     end
+  
   @comakerName1 = CoMaker.find(@loan_application.comaker1)
   @comakerName2 = CoMaker.find(@loan_application.comaker2)
+  
+     if @comakerName2.nil?
+     @comakerName2 = CoMaker.new  
+     end
   end
 
   # GET /loan_applications/new

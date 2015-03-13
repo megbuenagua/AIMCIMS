@@ -8,14 +8,15 @@
 <%= form_tag("/savings/search", method: "get") do %>
   <%= label_tag(:q, "Search for:") %>
   <%= text_field_tag(:q) %> By:
-  <%= select_tag :r, options_for_select([ " ","lastname", "member_number"], " ")%>
+  <%= select_tag :r, options_for_select(["lastname", "member_number"], " ")%>
   <%= submit_tag("Search") %>
 <% end %>
 
 <table>
   <thead>
     <tr>
-      <th>ID</th>
+    <th>ID</th>
+      <th>MID</th>
       <th >Member Number</th>
       <th >Name</th>
       <th colspan="5">Date and time</th>
@@ -27,21 +28,22 @@
   </thead>
 
   <tbody>
-    <% @savings.each do |saving| %>
+    <% @member.each do |saving| %>
       <tr>
-        <td><%= saving.member_id %></td>
-        <td><%= saving.member_number %></td>
-		<td><%= saving.lastname %></td>
-        <td><%= saving.firstname %></td>       
-        <td colspan="3"><%= saving.date_time %></td>
-        <td colspan="4"><%= saving.amount %></td>
-        <td><%= saving.ornumber %></td>
+        <td><%= saving.fullname%></td>
+
+        <td colspan="3"><%= saving.gender %></td>
+        <td colspan="4"><%= saving.membership_type %></td>
+        
       
         <td><%= link_to 'Show', saving %></td>
         <td><%= link_to 'Edit', edit_saving_path(saving) %></td>
         <td><%= link_to 'Destroy', saving, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Member Savings', savings_member_path(:member_id => saving.id) %></td>
       </tr>
     <% end %>
+    
+    
   </tbody>
 </table>
 

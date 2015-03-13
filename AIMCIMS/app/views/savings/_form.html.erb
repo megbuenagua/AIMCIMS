@@ -13,11 +13,18 @@
 
   
   <div class="field">
+  
+  
+  
     <label>Member ID:</label><br/>
-    <div class="control-group">
-  		<%= collection_select(:saving, :member_id, Member.all, :id, :fullname, {:include_blank => true} ) %>
-	
+	<% if @member.nil? %>    
+    	<div class="control-group">
+  			<%= collection_select(:saving, :member_id, Member.all, :id, :fullname, {:include_blank => true} ) %>
 		</div>
+	<% else %>
+		<%= f.text_field :member_id, :readonly => true, :value => @member.id %>
+		<%= @member.fullname %>
+	<% end %>		
   </div>
   <div class="field">
     <label>Date and Time:</label><br/>

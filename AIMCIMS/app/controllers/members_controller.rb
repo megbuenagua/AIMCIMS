@@ -22,9 +22,25 @@ class MembersController < ApplicationController
    #@members = Member.all
    #@savings =  Member.find(@member.id)
    @memberSavings = @member.id
+   
+   #savings display
    @savings = Saving.find_by_sql("SELECT * FROM savings INNER JOIN members ON  members.id = savings.member_id WHERE member_id =" + @memberSavings.to_s )
-   @withdrawals = Withdrawal.find_by_sql("SELECT * FROM withdrawals INNER JOIN members ON  members.id = withdrawals.member_id WHERE member_id =" + @memberSavings.to_s )
+   @totalsavings = Saving.where(member_id: @memberSavings).sum("amount")
 
+   #Withdrawals display
+   @withdrawals = Withdrawal.find_by_sql("SELECT * FROM withdrawals INNER JOIN members ON  members.id = withdrawals.member_id WHERE member_id =" + @memberSavings.to_s )
+   @totalwithdraw = Withdrawal.where(member_id: @memberSavings).sum("amount")
+   
+   #balance computation
+   @balance = @totalsavings - @totalwithdraw
+   
+   #Loans display
+   @loans = LoanApplication.find_by_sql("SELECT * FROM loan_applications INNER JOIN members ON  members.id = loan_applications.member_id
+   INNER JOIN loan_types ON  loan_types.id = loan_applications.loan_type_id WHERE member_id =" + @memberSavings.to_s )
+  
+   #redirect_to :controller => 'savings', :action => 'show', :member_id => params[:id]
+
+  
   end
   
   # GET /members/new

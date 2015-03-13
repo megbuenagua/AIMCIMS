@@ -1,7 +1,10 @@
 <p id="notice"><%= notice %></p>
 
+<h1>Member Profile</h1></br>
+
+<%= link_to 'Add Login Account', new_login_account_path %><br/>
 <%= link_to 'Add Saving', new_saving_path %><br/>
-<%= link_to 'Add Withdrawal', withdrawals_path %><br/>
+<%= link_to 'Add Withdrawal', new_withdrawal_path %><br/>
 
 <p>
   <strong>Member ID:</strong>
@@ -129,8 +132,18 @@
 <%= link_to 'Back', members_path %>
 <br/>
 <br/>
+
+<h3>Remaining Balance: <%= @balance %></h3>
+
 <p>
   <h2>Savings:</h2>
+  <p>
+  <strong>Total Savings:</strong>
+  <strong><%= @totalsavings %></strong></br>
+  <%= link_to 'New Savings', new_saving_path(:member_id => @member.id) %>
+
+
+</p>
   <table>
   <thead>
     <tr>
@@ -158,7 +171,12 @@
 </p>
 
 <p>
+
   <h2>Withdrawals:</h2>
+  <strong>Total Withdrawals:</strong>
+   <strong><%= @totalwithdraw %></strong></br>
+   
+   
   <table>
   <thead>
     <tr>
@@ -190,9 +208,17 @@
     <tr>
       <th>Loan Type</th>
       <th>Amount Loaned</th>
-      <th>Date Approved</th>
-      <th>Maturity Date</th>
+      <th>Loan Status</th>
       <th colspan="3"></th>
     </tr>
   </thead>
+  <tbody>
+    <% @loans.each do |loan| %>
+      <tr>
+        <td><%= loan.loan_name %></td>
+        <td><%= loan.loan_amount %></td>
+        <td><%= loan.application_status %></td>
+      </tr>
+    <% end %>
+  </tbody>
   </tbody>

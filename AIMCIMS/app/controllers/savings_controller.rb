@@ -6,27 +6,46 @@ class SavingsController < ApplicationController
   def index
    
     if params[:q].nil?
-      @savings = Saving.find_by_sql("SELECT * FROM savings INNER JOIN members ON  members.id = savings.member_id" )
+      #@savings = Saving.find_by_sql("SELECT * FROM savings INNER JOIN members ON  members.id = savings.member_id" )
+       @member = Member.all
+      #@savings.each do |sav|
+      #  sav.member.fullname
+      #end 
     else
-      #@savings = Saving.find_by_sql("SELECT * FROM savings WHERE member_id=" + params[:q])
-      @savings = Saving.find_by_sql("SELECT * FROM savings INNER JOIN members ON  members.id = savings.member_id WHERE lower("+params[:r]+ ") LIKE '" +params[:q]+ "%'")
+      if params[:r] == "lastname"
+      @member = Member.where( "lower(lastname) like ?", "%"+ params[:q].downcase + "%")
+      else
+      @member = Member.where( "member_number like ?", "%"+ params[:q] + "%" )
+      end
     end
   end
 
-def search
+  def search
     redirect_to :controller => 'savings', :action => 'index', :q => params[:q], :r => params[:r]
   end
   # GET /savings/1
   # GET /savings/1.json
+
+  def member
+    @member = Saving.where( "member_id = ?", params[:member_id] )
+    @membername = Member.
+    render :template => 'savings/member_savings'
+  end
+  
   def show
    @staffname=AdminStaff.find(@saving.staff_id) 
    @memberName = Member.find(@saving.member_id)
-   
+ 
   end
 
   # GET /savings/new
   def new
-    @saving = Saving.new
+    if params[:member_id].nil?
+      @saving = Saving.new
+    else
+      @saving = Saving.new
+      @member =  Member.find(params[:member_id])
+    end
   end
 
   # GET /savings/1/edit
