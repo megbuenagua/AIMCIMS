@@ -73,6 +73,6 @@ class AdminStaffsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def admin_staff_params
-      params.require(:admin_staff).permit(:staff_number, :staff_name, :date_hired, :staff_position, :status)
+      params.require(:admin_staff).permit(:staff_number, :staff_name, :date_hired, :staff_position, :status, :birthday)
     end
 end

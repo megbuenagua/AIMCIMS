@@ -20,6 +20,10 @@
     <%= f.text_field :staff_name %>
   </div>
   <div class="field">
+   <label>Birthday(MM/DD/YYYY):</label><br/>
+    <%= f.text_field :birthday  %>
+  </div>
+  <div class="field">
    <label>Date Hired</label><br/>
     <%= f.date_select(:date_hired, start_year: 2010) %>
   </div>
