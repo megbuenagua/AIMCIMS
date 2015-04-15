@@ -4,21 +4,29 @@ class LoanApplicationsController < ApplicationController
   # GET /loan_applications
   # GET /loan_applications.json
   def index
-    if params[:l].nil?
-      @loan_applications = LoanApplication.find_by_sql("SELECT * FROM loan_applications INNER JOIN members ON  members.id = loan_applications.member_id 
-INNER JOIN loan_types ON  loan_types.id = loan_applications.loan_type_id")
+  
+    if params[:q].nil?
+      @member = Member.all
     else
-      @loan_applications =LoanApplication.find_by_sql("SELECT * FROM loan_applications INNER JOIN members ON  members.id = loan_applications.member_id 
-INNER JOIN loan_types ON  loan_types.id = loan_applications.loan_type_id WHERE lower(" + params[:r]+ ") similar to '" + params[:l]+ "%';")
+      if params[:r] == "lastname"
+        @member = Member.where( "lower(lastname) like ?", "%"+ params[:q].downcase + "%")
+      else
+        @member = Member.where( "member_number like ?", "%"+ params[:q] + "%" )
+      end
     end
-    
   end
   
    def search
     #@loan_stat = LoanApplication.find_by application_status: params[:l]
-    redirect_to :controller => 'loan_applications', :action => 'index', :l => params[:l], :r => params[:r]
+    redirect_to :controller => 'loan_applications', :action => 'index', :q => params[:q], :r => params[:r]
   end
 
+  def member
+    @member = LoanApplication.where( "member_id = ?", params[:member_id] )
+    #@membername = Member.
+    render :template => 'loan_applications/member_loans'
+  end
+  
   # GET /loan_applications/1
   # GET /loan_applications/1.json
   def show
@@ -99,7 +107,7 @@ INNER JOIN loan_types ON  loan_types.id = loan_applications.loan_type_id WHERE l
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def loan_application_params
-      params.require(:loan_application).permit( :loan_type_id, :member_id, :application_status, :date_filed, :date_approved, :date_released, :other_resources, :total_family_income, 
+      params.require(:loan_application).permit( :loan_type_id, :member_id, :date_filed, :date_approved, :date_released, :other_resources, :total_family_income, 
       :real_properties, :remarks, :application_type, :loan_amount, :term_of_payment, :payment_per_term, :penalty_amount, :comaker1,  :relationship1, :comaker2, :relationship2)
     end
-end
+  end

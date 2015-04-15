@@ -3,10 +3,14 @@ Rails.application.routes.draw do
   get 'welcome/home'
   root 'welcome#index'
   get '/members/search' => 'members#search'
+  
   get '/loan_applications/search' => 'loan_applications#search'
-  get '/savings/search' => 'savings#search'
+  get '/loan_applications/member' => 'loan_applications#member'
+  
   get '/loan_payments/checkmember' => 'loan_payments#checkmember'
   #get '/members/:id', to: 'savings#new', as: 'member'
+  
+  get '/savings/search' => 'savings#search'
   get '/savings/member'=> 'savings#member'
   
   resources :capital_build_ups

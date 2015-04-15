@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150404104649) do
+ActiveRecord::Schema.define(version: 20150414065452) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -80,10 +80,10 @@ ActiveRecord::Schema.define(version: 20150404104649) do
     t.integer  "staff_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "category"
   end
 
   create_table "loan_applications", force: true do |t|
-    t.string   "application_status"
     t.date     "date_filed"
     t.date     "date_approved"
     t.date     "date_released"
@@ -171,6 +171,10 @@ ActiveRecord::Schema.define(version: 20150404104649) do
     t.text     "notes"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "spouse_employer"
+    t.string   "spouse_employer_number"
+    t.string   "spouse_work_position"
+    t.string   "spouse_office_address"
   end
 
   create_table "savings", force: true do |t|

@@ -2,13 +2,12 @@
 
 <h1>Member Profile</h1></br>
 
-<%= link_to 'Add Login Account', new_login_account_path %><br/>
+<%= link_to 'Edit Login Account', new_login_account_path %><br/>
 <%= link_to 'Add Saving', new_saving_path %><br/>
 <%= link_to 'Add Withdrawal', new_withdrawal_path %><br/>
 
 <p>
-  <strong>Member ID:</strong>
-  <%= @member.id%>
+  <strong>Member Number:</strong>
   <%= @member.member_number%>
 </p>
 
@@ -68,16 +67,6 @@
 </p>
 
 <p>
-  <strong>Spouse:</strong>
-  <%= @member.spouse %>
-</p>
-
-<p>
-  <strong>Occupation of spouse:</strong>
-  <%= @member.occupation_of_spouse %>
-</p>
-
-<p>
   <strong>Bank account:</strong>
   <%= @member.bank_account %>
 </p>
@@ -116,6 +105,37 @@
   <strong>Membership Type:</strong>
   <%= @member.membership_type %>
 </p>
+
+<p>
+  <strong>Spouse:</strong>
+  <%= @member.spouse %>
+</p>
+
+<p>
+  <strong>Occupation of spouse:</strong>
+  <%= @member.occupation_of_spouse %>
+</p>
+<p>
+  <strong>Employer of Spouse:</strong>
+  <%= @member.spouse_employer %>
+</p>
+
+<p>
+  <strong>Employer Number of Spouse:</strong>
+  <%= @member.spouse_employer_number %>
+</p>
+
+<p>
+  <strong>Position of Spouse:</strong>
+  <%= @member.spouse_work_position %>
+</p>
+
+<p>
+  <strong>Office Address of Spouse:</strong>
+  <%= @member.spouse_office_address %>
+</p>
+
+
 
 <p>
   <strong>Date approved:</strong>
@@ -208,7 +228,6 @@
     <tr>
       <th>Loan Type</th>
       <th>Amount Loaned</th>
-      <th>Loan Status</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -217,8 +236,7 @@
       <tr>
         <td><%= loan.loan_name %></td>
         <td><%= loan.loan_amount %></td>
-        <td><%= loan.application_status %></td>
-      </tr>
+        </tr>
     <% end %>
   </tbody>
   </tbody>

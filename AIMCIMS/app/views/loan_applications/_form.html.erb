@@ -126,19 +126,7 @@
     <%= f.label :remarks %><br>
     <%= f.text_area :remarks %>
   </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-  
-  <div class="field">      
-    <label>Application Status:</label><br/>
-    <%= f.radio_button(:application_status, "Pending") %>
-	<%= f.label(:as_P, "Pending") %>
-	<%= f.radio_button(:application_status, "Approved") %>
-	<%= f.label(:as_A, "Approved") %>
-	<%= f.radio_button(:application_status, "Rejected") %>
-	<%= f.label(:as_R, "Rejected") %>
-  </div>
+   
     <div class="field">
    <label>Date Approved:YYYY-MM-DD (ex. 2015-01-01)</label><br/>
    <%= f.date_field :date_approved %>
@@ -147,4 +135,9 @@
     <label>Date Released: YYYY-MM-DD (ex. 2015-01-01)</label><br/>
    <%= f.date_field :date_released %>
   </div>
+  
+   <div class="actions">
+    <%= f.submit %>
+  </div>
+
 <% end %>

@@ -13,7 +13,7 @@
 
   <div class="field">
     <label>Member ID:</label><br/>
-    <%= f.number_field :member_number , readonly: true %>
+    <%= f.text_field :member_number , readonly: true %>
   </div>
   <div class="field">
     <label>First Name:</label><br/>
@@ -46,15 +46,15 @@
   </div>
   <div class="field">
    <label>Home Number:</label><br/>
-    <%= f.number_field :home_number %>
+    <%= f.text_field :home_number %>
   </div>
   <div class="field">
    <label>Office Number:</label><br/>
-    <%= f.number_field :office_number %>
+    <%= f.text_field :office_number %>
   </div>
   <div class="field">
     <label>Mobile Number:</label><br/>
-    <%= f.number_field :mobile_number %>
+    <%= f.text_field :mobile_number %>
   </div>
   <div class="field">
     <label>Personal Email Address:</label><br/>
@@ -73,17 +73,7 @@
 	<%= f.label(:p_S, "Widower") %>
 	<%= f.radio_button(:civil_status, "Divorced") %>
 	<%= f.label(:p_M, "Divorced") %>
-	
-  </div>
-  <div class="field">
-    <%= f.label :spouse %><br>
-    <%= f.text_field :spouse %>
-  </div>
-  <div class="field">
-    <label>Occupation of Spouse:</label><br/>
-    <%= f.text_field :occupation_of_spouse %>
-  </div>
-  <div class="field">
+<div class="field">
     <label>Bank Account:</label><br/>
     <%= f.text_field :bank_account %>
   </div>
@@ -97,7 +87,7 @@
   </div>
   <div class="field">
     <label>Employer Number:</label><br/>
-    <%= f.number_field :employer_number %>
+    <%= f.text_field :employer_number %>
   </div>
   <div class="field">
     <%= f.label :position %><br>
@@ -111,6 +101,39 @@
     <label>Office Email:</label><br/>
     <%= f.text_field :office_email %>
   </div>
+  	
+  	</br>
+  </br>
+  
+  </div>
+  <div class="field">
+    <%= f.label :spouse %><br>
+    <%= f.text_field :spouse %>
+  </div>
+  <div class="field">
+    <label>Occupation of Spouse:</label><br/>
+    <%= f.text_field :occupation_of_spouse %>
+  </div>
+  <div class="field">
+   <label>Employer of Spouse:</label><br/>
+    <%= f.text_field :spouse_employer %>
+  </div>
+  <div class="field">
+    <label>Employer Number of Spouse:</label><br/>
+    <%= f.text_field :spouse_employer_number %>
+  </div>
+  <div class="field">
+  <label>Position of Spouse:</label><br/>
+    <%= f.text_field :spouse_work_position %>
+  </div>
+  <div class="field">
+   <label>Office Address of Spouse:</label><br/>
+    <%= f.text_field :spouse_office_address %>
+  </div>
+  
+  </br>
+  </br>
+  
   <div class="field">
     <label>Membership Type:</label><br/>
     <%= f.radio_button(:membership_type, "New") %>

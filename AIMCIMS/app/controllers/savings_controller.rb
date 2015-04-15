@@ -28,7 +28,7 @@ class SavingsController < ApplicationController
 
   def member
     @member = Saving.where( "member_id = ?", params[:member_id] )
-    @membername = Member.
+    #@membername = Member.
     render :template => 'savings/member_savings'
   end
   
