@@ -8,7 +8,6 @@ class MembersController < ApplicationController
       @members = Member.all.order('lastname ASC')
     else
       @members = Member.find_by_sql("SELECT * FROM members WHERE lower(" + params[:r]+ ") similar to '" + params[:q] + "%\'ORDER BY lastname")
-
     end
   end
   

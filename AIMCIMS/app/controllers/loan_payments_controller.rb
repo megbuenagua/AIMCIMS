@@ -6,10 +6,6 @@ class LoanPaymentsController < ApplicationController
   def index
     @loan_payments = LoanPayment.all
   end
-  
-  def checkmember
-  redirect_to :controller => 'loan_payments', :action => 'new', :r => params[:r]
-  end
 
   # GET /loan_payments/1
   # GET /loan_payments/1.json
@@ -19,13 +15,6 @@ class LoanPaymentsController < ApplicationController
   # GET /loan_payments/new
   def new
     @loan_payment = LoanPayment.new
-    @loan_app = :r
-    
-    if params[:r].nil?
-      @loansearch = LoanApplication.find_by_sql("SELECT * FROM loan_applications inner join loan_types on loan_types.id = loan_applications.loan_type_id inner join members on members.id = loan_applications.member_id")
-    else
-      @loansearch = LoanApplication.find_by_sql("SELECT * FROM loan_applications inner join loan_types on loan_types.id = loan_applications.loan_type_id inner join members on members.id = loan_applications.member_id where member.id ="+ @loan_app)
-    end
   end
 
   # GET /loan_payments/1/edit

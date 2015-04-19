@@ -25,6 +25,7 @@ class LoanApplicationsController < ApplicationController
     @member = LoanApplication.where( "member_id = ?", params[:member_id] )
     #@membername = Member.
     render :template => 'loan_applications/member_loans'
+    
   end
   
   # GET /loan_applications/1

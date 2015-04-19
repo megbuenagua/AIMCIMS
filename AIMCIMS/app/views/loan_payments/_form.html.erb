@@ -15,18 +15,14 @@
    <%= collection_select( :r, :member_id, Member.all, :id, :fullname, {:include_blank => true} ) %>
 <% end %>
 
-  </div> 
-  <%= link_to 'Check', new_loan_payment_path(:r) %>
-  <tbody>
+  
    
   </tbody>
  
   <div class="field">
     <label>Loan:</label><br/>
     <div class="controls">
-    
-  		<%= collection_select( :loan_payment, :loan_id, LoanApplication.find_by_sql("SELECT loan_name FROM loan_types inner join loan_applications on loan_types.id = loan_applications.loan_type_id inner join members on members.id = loan_applications.member_id where member_id =" + @loansearch + ";"), :id, :loan_name, {:include_blank => true} ) %>
-	
+    <%= f.text_field :loan_id %>
 	</div>
   </div>
   
@@ -34,10 +30,12 @@
    <label>Payment Date:</label><br/>
     <%= f.date_select :payment_date %>
   </div>
+  
   <div class="field">
     <label>Amount:</label><br/>
     <%= f.text_field :amount %>
   </div>
+  
   <div class="field">
     <label>OR Number:</label><br/>
     <%= f.text_field :ornumber %>
@@ -45,8 +43,8 @@
   <div class="field">
    <label>Staff ID:</label><br/>
     <div class="controls">
-  			<%= collection_select( :loan_payment, :staff_id, AdminStaff.all, :id, :staff_name, {:include_blank => true} ) %></br></br>
-		</div>
+  		<%= collection_select( :loan_payment, :staff_id, AdminStaff.all, :id, :staff_name, {:include_blank => true} ) %></br></br>
+	</div>
   </div>
   <div class="field">
     <%= f.label :remarks %><br>
