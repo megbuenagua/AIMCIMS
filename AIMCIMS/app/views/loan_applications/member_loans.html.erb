@@ -1,0 +1,41 @@
+<h1>Loans Monitoring</h1>
+
+<%= link_to 'New Loan', new_loan_application_path %>
+<br/><%= link_to 'Home', root_path %>
+<br/>
+<br/> 
+
+<table>
+  <thead>
+    <tr>
+    <th>Loan ID |</th>
+      <th>Loan Type |</th>
+      <th colspan="5">Loaned Amount |</th>
+      <th> Date Approved |</th>
+      <th> Terms of Payment |</th>
+      <th> Total Paid Amount |</th>
+      <th colspan="3">Percentage of Payment |</th>
+      <th colspan="3">Status</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @member.each do |loans| %>
+      <tr>
+      <td colspan="1"><%= loans.id%>//</td>
+        <td colspan="1"><%= loans.loan_type_id%> //</td>
+        <td colspan="3"><%= loans.loan_amount %> //</td>
+        <td colspan="3"><%= loans.date_approved%> //</td>
+		<td colspan="3"><%= loans.term_of_payment%> //</td>        
+      	<td><%= link_to 'View Payments' %></td>
+
+      	</tr>
+    <% end %>
+
+    
+  </tbody>
+</table>
+
+<br>
+
+

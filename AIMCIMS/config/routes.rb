@@ -4,10 +4,13 @@ Rails.application.routes.draw do
   root 'welcome#index'
   get '/members/search' => 'members#search'
   
+  get '/capital_build_ups/search' => 'capital_build_ups#search'
+
+  
   get '/loan_applications/search' => 'loan_applications#search'
   get '/loan_applications/member' => 'loan_applications#member'
-  
-  get '/loan_payments/checkmember' => 'loan_payments#checkmember'
+  get '/loan_applications/compute' => 'loan_applications#compute'
+   
   #get '/members/:id', to: 'savings#new', as: 'member'
   
   get '/savings/search' => 'savings#search'

@@ -10,6 +10,7 @@ class CapitalBuildUpsController < ApplicationController
   # GET /capital_build_ups/1
   # GET /capital_build_ups/1.json
   def show
+    @memberName = Member.find(@capital_build_up.member_id)
   end
 
   # GET /capital_build_ups/new
