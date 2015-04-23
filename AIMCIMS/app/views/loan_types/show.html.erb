@@ -31,5 +31,15 @@
   <%= @loan_type.penalty %>
 </p>
 
+<p>
+  <strong>Date Created:</strong>
+  <%= @loan_type.date_created %>
+</p>
+
+<p>
+  <strong>Created by:</strong>
+ 
+   <%= @staffname.staff_name %>
+</p>
 <%= link_to 'Edit', edit_loan_type_path(@loan_type) %> |
 <%= link_to 'Back', loan_types_path %>

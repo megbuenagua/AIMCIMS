@@ -11,7 +11,7 @@
 <%= form_tag("/loan_applications/search", method: "get") do %>
   <%= label_tag(:q, "Search for:") %>
   <%= text_field_tag(:q) %> By:
-   <%= select_tag :r, options_for_select([ " ","lastname","member_number"], " ")%>
+   <%= select_tag :r, options_for_select([ " ","lastname","member number"], " ")%>
   <%= submit_tag("Search") %>
 <% end %>
   

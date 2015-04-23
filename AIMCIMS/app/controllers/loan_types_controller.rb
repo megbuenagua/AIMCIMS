@@ -10,6 +10,8 @@ class LoanTypesController < ApplicationController
   # GET /loan_types/1
   # GET /loan_types/1.json
   def show
+  @staffname=AdminStaff.find(@loan_type.created_by) 
+ 
   end
 
   # GET /loan_types/new
@@ -69,6 +71,6 @@ class LoanTypesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def loan_type_params
-      params.require(:loan_type).permit( :loan_name, :maxamount, :minamount, :interest, :period, :penalty)
+      params.require(:loan_type).permit( :loan_name, :maxamount, :minamount, :interest, :period, :penalty, :date_created, :created_by )
     end
 end

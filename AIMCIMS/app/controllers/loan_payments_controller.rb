@@ -15,6 +15,7 @@ class LoanPaymentsController < ApplicationController
   # GET /loan_payments/new
   def new
     @loan_payment = LoanPayment.new
+   
   end
 
   # GET /loan_payments/1/edit
@@ -71,4 +72,5 @@ class LoanPaymentsController < ApplicationController
     def loan_payment_params
       params.require(:loan_payment).permit(:loan_id, :member_id, :payment_date, :amount, :ornumber, :staff_id, :remarks)
     end
-end
+  end
+

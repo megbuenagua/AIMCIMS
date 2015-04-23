@@ -11,22 +11,21 @@
     </div>
   <% end %>
 
- 
+ <div class="control-group">
+  	<%=f.label :member, class: 'control-group' %>
+  		<div class="controls">
+  			<%= collection_select( :loan_application, :member_id, Member.all, :id, :fullname, {:include_blank => true} ) %>
+		</div>
+	</div>
+	
+<h3>Loan Details</h3>	
+
   <div class="field">
     <label>Loan Type:</label><br/>
      <div class="control-group">
 <%=collection_select( :loan_application, :loan_type_id, LoanType.all, :id, :loan_name, {}, { :include_blank => true})%>
 </div>
    </div>
-   
-  
-  
-  <div class="control-group">
-  	<%=f.label :member, class: 'control-group' %>
-  		<div class="controls">
-  			<%= collection_select( :loan_application, :member_id, Member.all, :id, :fullname, {:include_blank => true} ) %>
-		</div>
-	</div>
   
   <div class="field">      
     <label>Application Type:</label><br/>
@@ -79,7 +78,7 @@
     <%= f.text_field :penalty_amount %>
   </div>
   
-  
+
   
   <div class="field">
   <label>Other Resources:</label><br/>
@@ -137,7 +136,7 @@
   </div>
   
    <div class="actions">
-    <%= f.submit %>
+     <%= f.submit "Save"%>
   </div>
 
 <% end %>

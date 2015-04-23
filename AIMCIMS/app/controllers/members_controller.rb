@@ -37,6 +37,8 @@ class MembersController < ApplicationController
    @loans = LoanApplication.find_by_sql("SELECT * FROM loan_applications INNER JOIN members ON  members.id = loan_applications.member_id
    INNER JOIN loan_types ON  loan_types.id = loan_applications.loan_type_id WHERE member_id =" + @memberSavings.to_s )
   
+   #Capital Build Up display
+   @cbu = CapitalBuildUp.find_by_sql("SELECT * FROM capital_build_ups where member_id = "+@memberSavings.to_s ) 
    #redirect_to :controller => 'savings', :action => 'show', :member_id => params[:id]
 
   
@@ -101,12 +103,21 @@ class MembersController < ApplicationController
     def set_member
       @member = Member.find(params[:id])
     end
+    
+    def set_login
+      @loagin = LoginAccount.find(params[:id])
+    end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def member_params
       params.require(:member).permit(:member_number, :firstname, :middlename, :lastname, :gender, :birthdate, :permanent_address,
        :home_number, :office_number, :mobile_number, :personal_Email, :civil_status, :spouse, :occupation_of_spouse,:spouse_employer, 
        :spouse_employer_number,  :spouse_office_address, :bank_account, 
-       :enrolled_with_postbank, :employer, :employer_number, :position, :office_address, :office_email, :membership_type, :date_approved, :notes)
+       :enrolled_with_postbank, :employer, :employer_number, :position, :office_address, :office_email, :membership_type, :date_approved, :notes, 
+       login_accounts_attributes:[:member_number, :birthdate])
+    end
+    
+    def login_accounts_params
+      params.require(:login).permit(:member_number, :birthdate)
     end
 end

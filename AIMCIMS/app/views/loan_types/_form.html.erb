@@ -31,7 +31,7 @@
     <%= f.text_field :interest %>
   </div>
   <div class="field">
-    <label>Period:(month)</label><br/>
+    <label>Period:(month/s)</label><br/>
     <%= f.number_field :period %>
   </div>
   
@@ -39,6 +39,16 @@
     <label>Penalty:(percent)</label><br/>
     <%= f.text_field :penalty %>
   </div>
+  <div class="field">
+ <label>Date Created:</label><br/>
+    <%= f.datetime_select :date_created %>
+  </div>
+   <div class="control-group">
+  	<%=f.label :staff, class: 'control-group' %>
+  		<div class="controls">
+  			<%= collection_select( :loan_type, :created_by, AdminStaff.all, :id, :staff_name, {:include_blank => true} ) %></br></br>
+		</div>
+	</div>
   <div class="actions">
     <%= f.submit %>
   </div>
