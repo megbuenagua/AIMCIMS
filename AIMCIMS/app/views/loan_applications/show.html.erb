@@ -1,4 +1,8 @@
+<h1>Loan Information</h1>
+
 <p id="notice"><%= notice %></p>
+
+<%= link_to 'Add Payment', new_loan_payment_path(:loan_id => @loan_application.id) %><br/>
 
 <p>
   <strong>Loan type ID:</strong>

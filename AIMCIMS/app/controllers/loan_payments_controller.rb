@@ -18,7 +18,7 @@ class LoanPaymentsController < ApplicationController
       @loan_payment = LoanPayment.new
     else
       @loan_payment = LoanPayment.new
-      @loans =  Loan_application.find(params[:loan_id])
+      @loan_application =  LoanApplication.find(params[:loan_id])
     end
   end
 

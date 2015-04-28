@@ -12,14 +12,18 @@
   <% end %>
   <label>Member ID:</label><br/>
    <%= collection_select( :loan_payments, :member_id, Member.all, :id, :fullname, {:include_blank => true} ) %>
-  
   </tbody>
  
+
   <div class="field">
-    <label>Loan:</label><br/>
-    <div class="controls">
-    <%= f.text_field :loan_id %>
-	</div>
+    <label>Loan ID:</label><br/>
+		<% if @loan_payment.nil? %>    
+    	<div class="control-group">
+		<%= f.text_field :loan_id %>		
+		</div>
+		<% else %>
+		<%= f.text_field :loan_id, :readonly => true, :value => @loan_application.id %>
+		<% end %>		
   </div>
   
   <div class="field">

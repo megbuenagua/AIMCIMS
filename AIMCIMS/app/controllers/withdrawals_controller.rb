@@ -13,10 +13,25 @@ class WithdrawalsController < ApplicationController
   @staffname=AdminStaff.find(@withdrawal.staff_id) 
   @memberName = Member.find(@withdrawal.member_id)
   end
+  
+  def checkbalance
+  
+  #savings 
+   @savings = Saving.find_by_sql("SELECT * FROM savings INNER JOIN members ON  members.id = savings.member_id WHERE member_id =" + @memberSavings.to_s )
+   @totalsavings = Saving.where(member_id: @memberSavings).sum("amount")
+
+   #Withdrawals
+   @withdrawals = Withdrawal.find_by_sql("SELECT * FROM withdrawals INNER JOIN members ON  members.id = withdrawals.member_id WHERE member_id =" + @memberSavings.to_s )
+   @totalwithdraw = Withdrawal.where(member_id: @memberSavings).sum("amount")
+   
+   #balance computation
+   @balance = @totalsavings - @totalwithdraw
+   
+   return @balance
+  end
 
   # GET /withdrawals/new
   def new
-    
     if params[:member_id].nil?
      @withdrawal = Withdrawal.new
     else
@@ -32,6 +47,7 @@ class WithdrawalsController < ApplicationController
   # POST /withdrawals
   # POST /withdrawals.json
   def create
+   
     @withdrawal = Withdrawal.new(withdrawal_params)
 
     respond_to do |format|

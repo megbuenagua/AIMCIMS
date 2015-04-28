@@ -28,7 +28,6 @@
         <td colspan="3"><%= loans.date_approved%> //</td>
 		<td colspan="3"><%= loans.term_of_payment%> //</td>        
  	    <td><%= link_to 'View Payments', loan_applications_payment_path(:loan_id => loans.id) %></td>
-      	
 		<td><%= link_to 'Show', loans %></td>
         <td><%= link_to 'Edit', edit_loan_application_path(loans) %></td>
         <td><%= link_to 'Destroy', loans, method: :delete, data: { confirm: 'Are you sure?' } %></td>
