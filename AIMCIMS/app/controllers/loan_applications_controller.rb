@@ -4,7 +4,6 @@ class LoanApplicationsController < ApplicationController
   # GET /loan_applications
   # GET /loan_applications.json
   def index
-  
     if params[:q].nil?
       @member = Member.all
     else
@@ -22,13 +21,17 @@ class LoanApplicationsController < ApplicationController
   end
 
   def member
-    @member = LoanApplication.where( "member_id = ?", params[:member_id] )
+    @loan = LoanApplication.where( "member_id = ?", params[:member_id] )
     #@membername = Member.
     render :template => 'loan_applications/member_loans'
   end
   
-  def compute
+  def payment
+    @payment = LoanPayment.where( "loan_id = ?", params[:loan_id] )
+     render :template => 'loan_applications/list_payment'
+  end
   
+  def compute
   end
     
   # GET /loan_applications/1
@@ -55,6 +58,8 @@ class LoanApplicationsController < ApplicationController
     @members = Member.all
     @loan_application = LoanApplication.new
     @loan_CM1 = CoMaker.where(coMakerId: ':coMaker1_id')
+    
+    
   end
 
   # GET /loan_applications/1/edit

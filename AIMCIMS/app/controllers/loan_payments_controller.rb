@@ -13,9 +13,13 @@ class LoanPaymentsController < ApplicationController
   end
 
   # GET /loan_payments/new
-  def new
-    @loan_payment = LoanPayment.new
-   
+  def new  
+    if params[:loan_id].nil?
+      @loan_payment = LoanPayment.new
+    else
+      @loan_payment = LoanPayment.new
+      @loans =  Loan_application.find(params[:loan_id])
+    end
   end
 
   # GET /loan_payments/1/edit

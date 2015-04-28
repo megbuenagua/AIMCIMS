@@ -10,10 +10,8 @@
       </ul>
     </div>
   <% end %>
-<%= form_tag("/loan_payment/checkmember", method: "get") do %>
   <label>Member ID:</label><br/>
-   <%= collection_select( :r, :member_id, Member.all, :id, :fullname, {:include_blank => true} ) %>
-<% end %>
+   <%= collection_select( :loan_payments, :member_id, Member.all, :id, :fullname, {:include_blank => true} ) %>
   
   </tbody>
  

@@ -10,11 +10,18 @@
       </ul>
     </div>
   <% end %>
-<div class="field">
-    <%= f.label :category %><br>
-    <%= f.select(:category, options_for_select([ " ","Collection", "Disbursement", "Releases"], " "))%>
- 
+
+  
+  <div class="field">
+    <label>Category:</label><br/>
+	<%= f.radio_button(:category, "Collection") %>
+	<%= f.label(:c, "Collection") %>
+	<%= f.radio_button(:category, "Disbursement") %>
+	<%= f.label(:c, "Disbursement") %>
+	<%= f.radio_button(:category, "Releases") %>
+	<%= f.label(:c, "Releases") %>
   </div>
+	  
   <div class="field">
     <%= f.label :particulars %><br>
     <%= f.text_field :particulars %>

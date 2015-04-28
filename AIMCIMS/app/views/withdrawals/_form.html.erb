@@ -11,12 +11,18 @@
     </div>
   <% end %>
 
-  <div class="control-group">
-  	<%=f.label :member, class: 'control-group' %>
-  		<div class="controls">
-  			<%= collection_select( :withdrawal, :member_id, Member.all, :id, :fullname, {:include_blank => true} ) %>
+<label>Member ID:</label><br/>
+	<% if @member.nil? %>    
+    	<div class="control-group">
+  			<%= collection_select(:withdrawal, :member_id, Member.all, :id, :fullname, {:include_blank => true} ) %>
 		</div>
-	</div>
+	<% else %>
+		<%= f.text_field :member_id, :readonly => true, :value => @member.id %>
+		<%= @member.fullname %>
+	<% end %>		
+  </div>
+
+  
   <div class="field">
  <label>Date and Time:</label><br/>
     <%= f.datetime_select :date_time %>

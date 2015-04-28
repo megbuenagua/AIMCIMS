@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   get '/loan_applications/search' => 'loan_applications#search'
   get '/loan_applications/member' => 'loan_applications#member'
   get '/loan_applications/compute' => 'loan_applications#compute'
+  get '/loan_applications/payment' => 'loan_applications#payment'
    
   #get '/members/:id', to: 'savings#new', as: 'member'
   

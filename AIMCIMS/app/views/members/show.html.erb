@@ -3,10 +3,7 @@
 <h1>Member Profile</h1></br>
 
 <%= link_to 'Edit Login Account', new_login_account_path %><br/>
-<%= link_to 'Add Saving', new_saving_path %><br/>
 <%= link_to 'New Savings', new_saving_path(:member_id => @member.id) %><br/>
-
-<%= link_to 'Add Withdrawal', new_withdrawal_path %><br/>
 <%= link_to 'Add Withdrawal', new_withdrawal_path(:member_id => @member.id) %><br/>
 
 <p>
@@ -164,9 +161,8 @@
   <strong>Total Savings:</strong>
   <strong><%= @totalsavings %></strong></br>
   <%= link_to 'New Savings', new_saving_path(:member_id => @member.id) %>
-
-
 </p>
+
   <table>
   <thead>
     <tr>
@@ -186,7 +182,6 @@
         <td><%= saving.amount %></td>
         <td><%= saving.ornumber %></td>
         <td><%= saving.remarks %></td>
-       
       </tr>
     <% end %>
   </tbody>
@@ -194,11 +189,9 @@
 </p>
 
 <p>
-
   <h2>Withdrawals:</h2>
   <strong>Total Withdrawals:</strong>
    <strong><%= @totalwithdraw %></strong></br>
-   
    
   <table>
   <thead>
@@ -219,12 +212,13 @@
         <td><%= withdrawal.amount %></td>
         <td><%= withdrawal.ornumber %></td>
         <td><%= withdrawal.remarks %></td>
-       
       </tr>
     <% end %>
   </tbody>
   </table>
 </p>
+
+<p>
 <h2>Loans:</h2>
 <table>
   <thead>
@@ -242,9 +236,10 @@
         </tr>
     <% end %>
   </tbody>
-  </tbody>
+</table>
+</p>
 
-
+<p>
 <h2>Capital Build Up:</h2>
 <table>
   <thead>
@@ -259,9 +254,10 @@
     <% @cbu.each do |cbu| %>
       <tr>
         <td><%= cbu.membership_type %></td>
-        <td><%= cbu.loan_amount %></td>
+        <td><%= cbu.subscribed_shares %></td>
         <td><%= cbu.status %></td>
         </tr>
     <% end %>
   </tbody>
-  </tbody>
+</table>
+</p>  

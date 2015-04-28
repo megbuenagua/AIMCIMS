@@ -16,7 +16,13 @@ class WithdrawalsController < ApplicationController
 
   # GET /withdrawals/new
   def new
-    @withdrawal = Withdrawal.new
+    
+    if params[:member_id].nil?
+     @withdrawal = Withdrawal.new
+    else
+     @withdrawal = Withdrawal.new
+      @member =  Member.find(params[:member_id])
+    end
   end
 
   # GET /withdrawals/1/edit
