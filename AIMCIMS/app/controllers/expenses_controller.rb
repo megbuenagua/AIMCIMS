@@ -4,10 +4,17 @@ class ExpensesController < ApplicationController
   # GET /expenses
   # GET /expenses.json
   def index
-    @expenses = Expense.all
+   
+    if params[:q].nil?
+       @expenses = Expense.all.order('expense_date DSC')
+    else
+       @expenses = Expense.find_by_sql("SELECT * FROM expenses WHERE lower(" + params[:r]+ ") similar to '" + params[:q] + "%\'ORDER BY expense_date")
+    end
   end
   
-
+  def search
+    redirect_to :controller => 'expenses', :action => 'index', :r => params[:r], :q => params[:q]
+  end
   # GET /expenses/1
   # GET /expenses/1.json
   def show

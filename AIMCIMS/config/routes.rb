@@ -6,7 +6,8 @@ Rails.application.routes.draw do
   
   get '/capital_build_ups/search' => 'capital_build_ups#search'
 
-  
+  get '/expenses/search' => 'expenses#search'
+   
   get '/loan_applications/search' => 'loan_applications#search'
   get '/loan_applications/member' => 'loan_applications#member'
   get '/loan_applications/compute' => 'loan_applications#compute'

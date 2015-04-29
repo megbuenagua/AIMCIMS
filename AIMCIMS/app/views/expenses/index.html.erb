@@ -3,6 +3,15 @@
 <%= link_to 'New Expense', new_expense_path %>
 <br/><%= link_to 'Home', root_path %></br></br>
 
+
+<%= form_tag("/expenses/search", method: "get") do %>
+  <%= label_tag(:q, "Search for:") %>
+  <%= text_field_tag(:q) %>   By:
+    <%= select_tag :r, options_for_select([ " ","category", "expense_date"], " ")%>
+  <%= submit_tag("Search") %>
+<% end %>
+</br>
+
 <table>
   <thead>
     <tr>
