@@ -1,0 +1,39 @@
+<h1>Capital Buid Up</h1>
+
+  <strong><%= @memberName.fullname %></strong></br>
+
+
+<br/><%= link_to 'Add New Capital build up', new_capital_build_up_path(:member_id => params[:member_id]) %>
+<br/><%= link_to 'Home', root_path %>
+<br/>
+<br/>
+
+<table>
+  <thead>
+    <tr>
+      <th>CBU id</th>
+      <th>Membership Type</th>
+      <th>Subscribed Shares</th>
+	  <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @cbu.each do |capital_build_up| %>
+      <tr>
+        
+        <td><%= capital_build_up.id %></td>
+        <td><%= capital_build_up.membership_type %></td>
+        <td><%= capital_build_up.subscribed_shares %></td>
+        <td><%= link_to 'Show', capital_build_up %></td>
+        <td><%= link_to 'Edit', edit_capital_build_up_path(capital_build_up) %></td>
+ 	    <td><%= link_to 'Add Payment', new_cbu_contribution_path(:cbu_id => capital_build_up.id) %></td>
+   	    <td><%= link_to 'View Payments', capital_build_ups_payment_path(:cbu_id => capital_build_up.id) %></td>
+
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
