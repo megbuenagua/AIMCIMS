@@ -1,11 +1,22 @@
 Rails.application.routes.draw do
  
-  get 'welcome/home'
-  root 'welcome#index'
+  get 'users/new'
+
+  #get 'welcome/home'
+  #root 'welcome#index'
+  get 'welcome/index'
+  root 'welcome#home'
+  
+  post '/login' => 'welcome#login'
+  get '/logout' => 'welcome#logout'
   get '/members/search' => 'members#search'
   
   get '/capital_build_ups/search' => 'capital_build_ups#search'
+  get '/capital_build_ups/member' => 'capital_build_ups#member'
+  get '/capital_build_ups/payment' => 'capital_build_ups#payment'
 
+  get '/co_makers/search' => 'co_makers#search'
+ 
   get '/expenses/search' => 'expenses#search'
    
   get '/loan_applications/search' => 'loan_applications#search'

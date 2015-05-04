@@ -1,14 +1,20 @@
+require 'digest/md5'
+
+
 class MembersController < ApplicationController
   before_action :set_member, only: [:show, :edit, :update, :destroy]
 
   # GET /members
   # GET /members.json
   def index
+    
     if params[:q].nil?
       @members = Member.all.order('lastname ASC')
     else
       @members = Member.find_by_sql("SELECT * FROM members WHERE lower(" + params[:r]+ ") similar to '" + params[:q] + "%\'ORDER BY lastname")
     end
+    
+    @gender= Member.group(:gender).count
   end
   
   def search
@@ -19,7 +25,6 @@ class MembersController < ApplicationController
   # GET /members/1.json
   def show
    #@members = Member.all
-   #@savings =  Member.find(@member.id)
    @memberSavings = @member.id
    
    #savings display
@@ -57,7 +62,11 @@ class MembersController < ApplicationController
   # POST /members.json
   def create
     @member = Member.new(member_params)
-
+    
+      if @member.password != '' 
+        then @member.password = Digest::MD5.hexdigest(@member.password)
+      end
+     
     respond_to do |format|
       if @member.save
         _date = DateTime.now.strftime('%Y%m%d%H%M')
@@ -105,12 +114,12 @@ class MembersController < ApplicationController
     end
     
     def set_login
-      @loagin = LoginAccount.find(params[:id])
+      @login = LoginAccount.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def member_params
-      params.require(:member).permit(:member_number, :firstname, :middlename, :lastname, :gender, :birthdate, :permanent_address,
+      params.require(:member).permit(:password,:member_number, :firstname, :middlename, :lastname, :gender, :birthdate, :permanent_address,
        :home_number, :office_number, :mobile_number, :personal_Email, :civil_status, :spouse, :occupation_of_spouse,:spouse_employer, 
        :spouse_employer_number,  :spouse_office_address, :bank_account, 
        :enrolled_with_postbank, :employer, :employer_number, :position, :office_address, :office_email, :membership_type, :date_approved, :notes, 
@@ -118,6 +127,6 @@ class MembersController < ApplicationController
     end
     
     def login_accounts_params
-      params.require(:login).permit(:member_number, :birthdate)
+      params.require(:login).permit(:member_number, :password,:password_confirmation)
     end
 end

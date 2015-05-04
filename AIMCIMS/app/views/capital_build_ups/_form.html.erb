@@ -11,16 +11,29 @@
     </div>
   <% end %>
 
-  <div class="control-group">
-  	<%=f.label :member, class: 'control-group' %>
-  		<div class="controls">
+ <div class="field">
+    <label>Member ID:</label><br/>
+	<% if @member.nil? %>    
+    	<div class="control-group">
   			<%= collection_select(:capital_build_up, :member_id, Member.all, :id, :fullname, {:include_blank => true} ) %>
 		</div>
-	</div>
-  <div class="field">
-   <label>Membership Type:</label><br/>
-    <%= f.text_field :membership_type %>
+	<% else %>
+		<%= f.text_field :member_id, :readonly => true, :value => @member.id %>
+		<%= @member.fullname %>
+	<% end %>		
   </div>
+
+  
+<div class="field">
+    <label>Membership Type:</label><br/>
+    <%= f.radio_button(:membership_type, "New") %>
+	<%= f.label(:membershipType_N, "New") %>     
+    <%= f.radio_button(:membership_type, "Regular") %>
+	<%= f.label(:membershipType_R, "Regular") %>
+	<%= f.radio_button(:membership_type, "Associate") %>
+	<%= f.label(:membershipType_A, "Associate") %>
+  </div>
+  
   <div class="field">
    <label>Member Since:</label><br/>
     <%= f.date_select :member_since %>
@@ -50,7 +63,7 @@
     <%= f.text_field :paid_shares_percentage %>
   </div>
   <div class="field">
-    <label>Terms of Payment:</label><br/>
+    <label>Terms of Payment:(months)</label><br/>
     <%= f.text_field :terms_of_payment %>
   </div>
   <div class="field">

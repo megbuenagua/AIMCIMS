@@ -1,6 +1,6 @@
 class CapitalBuildUp < ActiveRecord::Base
   belongs_to :members, foreign_key: "member_id"
-  has_many :capital_build_ups
+  has_many :cbu_contributions
   
   validates :member_id, presence: true
   validates :membership_type, presence: true

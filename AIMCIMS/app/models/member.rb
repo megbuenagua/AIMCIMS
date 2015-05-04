@@ -8,6 +8,9 @@ has_many :loan_applications
 has_many :savings
 has_many :withdrawals
 
+
+
+
 def fullname
   "#{lastname}, #{firstname} #{middlename} (#{member_number}) "
 end

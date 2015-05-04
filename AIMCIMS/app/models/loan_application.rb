@@ -1,6 +1,6 @@
 class LoanApplication < ActiveRecord::Base
-  belongs_to :member
-  belongs_to :loan_type
+  belongs_to :members
+  belongs_to :loan_types
   
   has_many :loan_payments
   has_many :co_makers

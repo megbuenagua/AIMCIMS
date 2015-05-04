@@ -14,7 +14,12 @@ class CbuContributionsController < ApplicationController
 
   # GET /cbu_contributions/new
   def new
-    @cbu_contribution = CbuContribution.new
+    if params[:cbu_id].nil?
+      @cbu_contribution = CbuContribution.new
+    else
+      @cbu_contribution = CbuContribution.new
+      @payment = CapitalBuildUp.find(params[:cbu_id])
+    end
   end
 
   # GET /cbu_contributions/1/edit
@@ -69,6 +74,6 @@ class CbuContributionsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def cbu_contribution_params
-      params.require(:cbu_contribution).permit(:memberID, :payment_date, :amount, :ornumber, :staff_id, :remarks)
+      params.require(:cbu_contribution).permit(:cbu_id, :payment_date, :amount, :ornumber, :staff_id, :remarks)
     end
 end

@@ -3,8 +3,9 @@
 <h1>Member Profile</h1></br>
 
 <%= link_to 'Edit Login Account', new_login_account_path %><br/>
-<%= link_to 'New Savings', new_saving_path(:member_id => @member.id) %><br/>
+<%= link_to 'Add Savings', new_saving_path(:member_id => @member.id) %><br/>
 <%= link_to 'Add Withdrawal', new_withdrawal_path(:member_id => @member.id) %><br/>
+<%= link_to 'Add Capital Build Up', new_capital_build_up_path(:member_id => @member.id) %><br/>
 
 <p>
   <strong>Member Number:</strong>
@@ -152,6 +153,9 @@
 <%= link_to 'Back', members_path %>
 <br/>
 <br/>
+<br/>
+
+<h2>Transacations:</h2>
 
 <h3>Remaining Balance: <%= @balance %></h3>
 

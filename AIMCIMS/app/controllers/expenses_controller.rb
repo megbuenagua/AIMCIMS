@@ -6,9 +6,13 @@ class ExpensesController < ApplicationController
   def index
    
     if params[:q].nil?
-       @expenses = Expense.all.order('expense_date DSC')
+       @expenses = Expense.all.order('expense_date DESC')
     else
+      if params[:r] == "category"
        @expenses = Expense.find_by_sql("SELECT * FROM expenses WHERE lower(" + params[:r]+ ") similar to '" + params[:q] + "%\'ORDER BY expense_date")
+      else
+       @expenses = Expense.find_by_sql("SELECT * FROM expenses WHERE expense_date = \'" + params[:q] + "\'")
+      end
     end
   end
   

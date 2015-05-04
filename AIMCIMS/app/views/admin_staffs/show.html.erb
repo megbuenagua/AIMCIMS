@@ -1,5 +1,5 @@
 <p id="notice"><%= notice %></p>
-
+<%= @message %>
 <p>
   <strong>Staff ID:</strong>
   <%= @admin_staff.staff_number %>
@@ -30,5 +30,5 @@
 </p>
 
 <%= link_to 'Edit', edit_admin_staff_path(@admin_staff) %> |
-<%= link_to 'Back', admin_staffs_path %> <br/>
+<%= link_to 'Back to admin index', welcome_index_path %> <br/>
 

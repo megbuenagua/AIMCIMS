@@ -4,7 +4,7 @@
 
 
 <br/><%= link_to 'Add New Capital build up', new_capital_build_up_path(:member_id => params[:member_id]) %>
-<br/><%= link_to 'Home', root_path %>
+<br/><%= link_to 'Home', welcome_index_path %>
 <br/>
 <br/>
 
@@ -27,7 +27,6 @@
         <td><%= capital_build_up.subscribed_shares %></td>
         <td><%= link_to 'Show', capital_build_up %></td>
         <td><%= link_to 'Edit', edit_capital_build_up_path(capital_build_up) %></td>
- 	    <td><%= link_to 'Add Payment', new_cbu_contribution_path(:cbu_id => capital_build_up.id) %></td>
    	    <td><%= link_to 'View Payments', capital_build_ups_payment_path(:cbu_id => capital_build_up.id) %></td>
 
       </tr>

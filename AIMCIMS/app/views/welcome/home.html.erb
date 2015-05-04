@@ -1,3 +1,17 @@
 <h1>Agri-Industrial Multi-Purpose Cooperative</h1>
 
-<%= link_to 'AIMCIMS', home_index_path %><br/>
+
+
+<strong><%= @message%></strong>
+<br\>
+<br\>
+<h3>Login</h3>
+<%= form_tag("/login", method: "post") do %>
+
+<%= label_tag(:u, "Username:") %>
+<%= text_field_tag(:u) %>
+<br><br><%= label_tag(:p, "Password:") %>
+<%= password_field_tag(:p) %>
+<br><br><%= submit_tag("Login") %>
+
+<%end%>

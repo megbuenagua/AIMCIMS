@@ -74,7 +74,7 @@ class LoanPaymentsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def loan_payment_params
-      params.require(:loan_payment).permit(:loan_id, :member_id, :payment_date, :amount, :ornumber, :staff_id, :remarks)
+      params.require(:loan_payment).permit(:loan_id, :payment_date, :amount, :ornumber, :staff_id, :remarks)
     end
   end
 

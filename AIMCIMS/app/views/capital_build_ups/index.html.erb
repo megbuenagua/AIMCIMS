@@ -1,33 +1,34 @@
 <h1>Capital Buid Up</h1>
 
-<%= link_to 'New Capital build up', new_capital_build_up_path %>
-<br/><%= link_to 'Capital build up Payment', cbu_contributions_path %>
-<br/><%= link_to 'Home', root_path %>
+<%= link_to 'Add New Capital build up', new_capital_build_up_path %>
+
+<br/><%= link_to 'Home', welcome_index_path %>
 <br/>
 <br/>
+
+<%= form_tag("/capital_build_ups/search", method: "get") do %>
+  <%= label_tag(:q, "Search for:") %>
+  <%= text_field_tag(:q) %> By:
+   <%= select_tag :r, options_for_select([ " ","lastname","member number"], " ")%>
+  <%= submit_tag("Search") %>
+<% end %>
 <table>
   <thead>
     <tr>
-      <th>Member ID</th>
-      <th>Membership Type</th>
-      <th>Member since</th>
-      <th>Subscribed shares</th>
-     
-      <th colspan="3"></th>
+      <th>Member Number</th>
+      <th>Member Name</th>
+	  <th colspan="3"></th>
     </tr>
   </thead>
 
   <tbody>
-    <% @capital_build_ups.each do |capital_build_up| %>
+    <% @member.each do |capital_build_up| %>
       <tr>
-        <td><%= capital_build_up.member_id %></td>
-        <td><%= capital_build_up.membership_type %></td>
-        <td><%= capital_build_up.member_since %></td>
-        <td><%= capital_build_up.subscribed_shares %></td>
         
-        <td><%= link_to 'Show', capital_build_up %></td>
-        <td><%= link_to 'Edit', edit_capital_build_up_path(capital_build_up) %></td>
-        <td><%= link_to 'Destroy', capital_build_up, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= capital_build_up.member_number %></td>
+        <td><%= capital_build_up.fullname %></td>
+		<td><%= link_to 'Member CBU', capital_build_ups_member_path(:member_id => capital_build_up.id) %></td>
+
       </tr>
     <% end %>
   </tbody>

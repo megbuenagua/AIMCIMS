@@ -12,11 +12,13 @@
   <% end %>
 
   <div class="field">
-    <label>Member ID:</label><br/>
-   <div class="controls">
-  			<%= collection_select( :cbu_contributions, :member_id, Member.all, :id, :fullname, {:include_blank => true} ) %>
-		</div>
+    <label>CBU ID:</label><br/>
+	
+		<%= f.text_field :cbu_id, :value => @cbu_contribution.cbu_id %>
+		
+		
   </div>
+  
   <div class="field">
     <%= f.label :payment_date %><br>
     <%= f.datetime_select :payment_date %>

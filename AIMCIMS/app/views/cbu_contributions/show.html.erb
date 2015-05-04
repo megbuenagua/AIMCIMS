@@ -1,8 +1,11 @@
+ <h1>Capital Build Up Payment</h1>
+ 
+
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Member ID:</strong>
-  <%= @cbu_contribution.memberID %>
+  <strong>CBU ID:</strong>
+  <%= @cbu_contribution.cbu_id %>
 </p>
 
 <p>
@@ -31,4 +34,3 @@
 </p>
 
 <%= link_to 'Edit', edit_cbu_contribution_path(@cbu_contribution) %> |
-<%= link_to 'Back', cbu_contributions_path %>

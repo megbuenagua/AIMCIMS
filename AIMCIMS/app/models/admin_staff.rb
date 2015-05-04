@@ -7,6 +7,6 @@ class AdminStaff < ActiveRecord::Base
   validates :date_hired, presence: true
   validates :staff_position, presence: true
   validates :status, presence: true
-
+validates :password, presence: true
 
 end

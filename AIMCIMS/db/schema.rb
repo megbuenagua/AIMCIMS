@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150422165557) do
+ActiveRecord::Schema.define(version: 20150503182726) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,6 +25,7 @@ ActiveRecord::Schema.define(version: 20150422165557) do
     t.datetime "updated_at"
     t.string   "staff_number"
     t.string   "birthday"
+    t.string   "password"
   end
 
   create_table "capital_build_ups", force: true do |t|
@@ -45,7 +46,6 @@ ActiveRecord::Schema.define(version: 20150422165557) do
   end
 
   create_table "cbu_contributions", force: true do |t|
-    t.integer  "member_id"
     t.datetime "payment_date"
     t.decimal  "amount"
     t.string   "ornumber"
@@ -53,6 +53,7 @@ ActiveRecord::Schema.define(version: 20150422165557) do
     t.text     "remarks"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "cbu_id"
   end
 
   create_table "co_makers", force: true do |t|
@@ -102,19 +103,17 @@ ActiveRecord::Schema.define(version: 20150422165557) do
     t.string   "relationship2"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "member_id"
     t.integer  "loan_type_id"
     t.integer  "co_maker_id"
     t.integer  "period"
+    t.integer  "member_id"
   end
 
   add_index "loan_applications", ["co_maker_id"], name: "index_loan_applications_on_co_maker_id", using: :btree
   add_index "loan_applications", ["loan_type_id"], name: "index_loan_applications_on_loan_type_id", using: :btree
-  add_index "loan_applications", ["member_id"], name: "index_loan_applications_on_member_id", using: :btree
 
   create_table "loan_payments", force: true do |t|
     t.integer  "loan_id"
-    t.integer  "member_id"
     t.date     "payment_date"
     t.decimal  "amount"
     t.string   "ornumber"
@@ -177,6 +176,7 @@ ActiveRecord::Schema.define(version: 20150422165557) do
     t.string   "spouse_employer_number"
     t.string   "spouse_work_position"
     t.string   "spouse_office_address"
+    t.string   "password",               null: false
   end
 
   create_table "savings", force: true do |t|
@@ -186,6 +186,14 @@ ActiveRecord::Schema.define(version: 20150422165557) do
     t.string   "ornumber"
     t.integer  "staff_id"
     t.text     "remarks"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "users", force: true do |t|
+    t.string   "email"
+    t.string   "password_hash"
+    t.string   "password_salt"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -201,7 +209,8 @@ ActiveRecord::Schema.define(version: 20150422165557) do
     t.datetime "updated_at"
   end
 
+  add_foreign_key "loan_applications", "co_makers", name: "comaker1"
+  add_foreign_key "loan_applications", "co_makers", name: "comaker2"
   add_foreign_key "loan_applications", "loan_types", name: "loan_applications_loan_type_id_fk"
-  add_foreign_key "loan_applications", "members", name: "loan_applications_member_id_fk"
 
 end

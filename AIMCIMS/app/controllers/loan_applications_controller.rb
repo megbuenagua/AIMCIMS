@@ -19,16 +19,34 @@ class LoanApplicationsController < ApplicationController
     #@loan_stat = LoanApplication.find_by application_status: params[:l]
     redirect_to :controller => 'loan_applications', :action => 'index', :q => params[:q], :r => params[:r]
   end
+  
 
   def member
+    
+    @memberName = Member.find(params[:member_id])
     @loan = LoanApplication.where( "member_id = ?", params[:member_id] )
     #@membername = Member.
     render :template => 'loan_applications/member_loans'
   end
   
   def payment
+    
     @payment = LoanPayment.where( "loan_id = ?", params[:loan_id] )
-     render :template => 'loan_applications/list_payment'
+    render :template => 'loan_applications/list_payment'
+     
+     
+    @loan = params[:loan_id]
+    #compute for total payment made
+    @memberpayments = LoanPayment.find_by_sql("SELECT * FROM loan_payments INNER JOIN loan_applications ON  loan_applications.id = loan_payments.loan_id WHERE loan_id =" + @loan )
+    @totalpayment= LoanPayment.where(loan_id: @memberpayments).sum("amount")
+    
+    #compute for percentage
+    @loanamount = LoanApplication.find_by_sql("SELECT loan_amount FROM loan_applications WHERE id = " + @loan.to_s)
+    @paymentpercentage =(@totalpayment / @loanamount[0].loan_amount)* 100
+    puts @loanamount.class
+    puts @totalpayment.class
+    
+   
   end
   
   def compute

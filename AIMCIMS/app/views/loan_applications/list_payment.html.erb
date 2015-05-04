@@ -1,7 +1,11 @@
 <h1>List of Payments</h1>
 
 <%= link_to 'Add Payment', new_loan_payment_path(:loan_id => params[:loan_id]) %>
-<br/><%= link_to 'Home', root_path %>
+<br/><%= link_to 'Home', welcome_index_path %>
+<br/>
+<br/>
+<strong>Total Payment:<%= @totalpayment %></strong><br />
+<strong>Percentage OF payment: <%= @paymentpercentage%></strong>
 <br/>
 <br/>
 
@@ -9,7 +13,6 @@
   <thead>
     <tr>
 	  <th>Loan</th>
-      <th>Member</th>
       <th>Payment date</th>
       <th>Amount</th>
       <th>OR number</th>
@@ -23,7 +26,6 @@
     <% @payment.each do |loan_payment| %>
       <tr>
         <td><%= loan_payment.loan_id %></td>
-        <td><%= loan_payment.member_id %></td>
         <td><%= loan_payment.payment_date %></td>
         <td><%= loan_payment.amount %></td>
         <td><%= loan_payment.ornumber %></td>

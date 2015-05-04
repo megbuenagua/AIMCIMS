@@ -1,9 +1,20 @@
 <h1>Comakers list</h1>
 
 <%= link_to 'New Comaker', new_co_maker_path %>
-<br/><%= link_to 'Home', root_path %>
+<br/><%= link_to 'Home', welcome_index_path %>
 <br/>
 <br/>
+
+<%= form_tag("/co_makers/search", method: "get") do %>
+  <%= label_tag(:q, "Search for:") %>
+  <%= text_field_tag(:q) %> By:
+   <%= select_tag :r, options_for_select([ " ","lastname","co-maker number"], " ")%>
+  <%= submit_tag("Search") %>
+<% end %>
+
+<br/>
+<br/>
+
 <table>
   <thead>
     <tr>

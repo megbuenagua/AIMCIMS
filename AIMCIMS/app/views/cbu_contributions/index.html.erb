@@ -1,7 +1,7 @@
 <h1>Capital Build Up Payments</h1>
 
 <%= link_to 'New Cbu contribution', new_cbu_contribution_path %>
-<br/><%= link_to 'Home', root_path %>
+<br/><%= link_to 'Home', welcome_index_path %>
 <br/>
 <br/>
 <table>
@@ -20,7 +20,7 @@
   <tbody>
     <% @cbu_contributions.each do |cbu_contribution| %>
       <tr>
-        <td><%= cbu_contribution.member_id %></td>
+        <td><%= cbu_contribution.cbu_id %></td>
         <td><%= cbu_contribution.payment_date %></td>
         <td><%= cbu_contribution.amount %></td>
         <td><%= cbu_contribution.ornumber %></td>

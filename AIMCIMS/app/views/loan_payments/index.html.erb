@@ -9,7 +9,6 @@
   <thead>
     <tr>
       <th>Loan</th>
-      <th>Member</th>
       <th>Payment date</th>
       <th>Amount</th>
       <th>OR number</th>
@@ -23,7 +22,6 @@
     <% @loan_payments.each do |loan_payment| %>
       <tr>
         <td><%= loan_payment.loan_id %></td>
-        <td><%= loan_payment.member_id %></td>
         <td><%= loan_payment.payment_date %></td>
         <td><%= loan_payment.amount %></td>
         <td><%= loan_payment.ornumber %></td>

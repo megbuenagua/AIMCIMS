@@ -27,6 +27,7 @@ class SavingsController < ApplicationController
   # GET /savings/1.json
 
   def member
+    @memberName = Member.find(params[:member_id])
     @member = Saving.where( "member_id = ?", params[:member_id] )
     #@membername = Member.
     render :template => 'savings/member_savings'

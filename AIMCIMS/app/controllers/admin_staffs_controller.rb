@@ -25,6 +25,10 @@ class AdminStaffsController < ApplicationController
   # POST /admin_staffs.json
   def create
     @admin_staff = AdminStaff.new(admin_staff_params)
+    
+    if @admin_staff.password != '' 
+        then @admin_staff.password = Digest::MD5.hexdigest(@admin_staff.password)
+      end
 
     respond_to do |format|
       if @admin_staff.save
@@ -46,7 +50,7 @@ class AdminStaffsController < ApplicationController
   def update
     respond_to do |format|
       if @admin_staff.update(admin_staff_params)
-        format.html { redirect_to @admin_staff, notice: 'Admin staff was successfully updated.' }
+        format.html { redirect_to @admin_staff, notice: 'Admin/staff was successfully updated.' }
         format.json { render :show, status: :ok, location: @admin_staff }
       else
         format.html { render :edit }
@@ -73,6 +77,6 @@ class AdminStaffsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def admin_staff_params
-      params.require(:admin_staff).permit(:staff_number, :staff_name, :date_hired, :staff_position, :status, :birthday)
+      params.require(:admin_staff).permit(:staff_number, :staff_name, :date_hired, :staff_position, :status, :birthday, :password)
     end
 end

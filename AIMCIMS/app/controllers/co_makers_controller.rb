@@ -4,12 +4,33 @@ class CoMakersController < ApplicationController
   # GET /co_makers
   # GET /co_makers.json
   def index
-    @co_makers = CoMaker.all
+    @cmcount=LoanApplication.group(:comaker1).count
+    
+    if params[:q].nil?
+     @co_makers = CoMaker.all.order('comakerlname ASC')
+    else
+      if params[:r] == "lastname"
+        @co_makers = CoMaker.where( "lower(comakerlname) like ?", "%"+ params[:q].downcase + "%")
+      else
+        @co_makers = CoMaker.where( "comaker_number like ?", "%"+ params[:q] + "%" )
+      end    
+    end
+  end
+  
+  def search
+    
+    redirect_to :controller => 'co_makers', :action => 'index', :r => params[:r], :q => params[:q]
   end
 
   # GET /co_makers/1
   # GET /co_makers/1.json
   def show
+  @cm = @co_maker.id  
+  
+  @cmcount1=LoanApplication.where(comaker1: params[:id]).count
+  @cmcount2=LoanApplication.where(comaker2: params[:id]).count
+  @cmcount = @cmcount1 + @cmcount2
+
   end
 
   # GET /co_makers/new

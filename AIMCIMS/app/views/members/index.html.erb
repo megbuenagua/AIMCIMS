@@ -3,10 +3,11 @@
 <%= link_to 'New Member', new_member_path %>
 <br/><%= link_to 'Savings', savings_path %>
 <br/><%= link_to 'Withdrawals', withdrawals_path %>
-<br/><%= link_to 'Home', root_path %>
+<br/><%= link_to 'Home', welcome_index_path %>
 <br/>
 <br/> 
 
+   
 <%= form_tag("/members/search", method: "get") do %>
   <%= label_tag(:q, "Search for:") %>
   <%= text_field_tag(:q) %>   By:

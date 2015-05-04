@@ -1,3 +1,5 @@
+require 'digest/md5'
+
 class LoginAccountsController < ApplicationController
   before_action :set_login_account, only: [:show, :edit, :update, :destroy]
 
@@ -24,10 +26,13 @@ class LoginAccountsController < ApplicationController
   # POST /login_accounts
   # POST /login_accounts.json
   def create
+     
     @login_account = LoginAccount.new(login_account_params)
-
+    @login_account.password = Digest::MD5.hexdigest(@login_account.password)
+    
     respond_to do |format|
       if @login_account.save
+      
         format.html { redirect_to @login_account, notice: 'Login account was successfully created.' }
         format.json { render :show, status: :created, location: @login_account }
       else

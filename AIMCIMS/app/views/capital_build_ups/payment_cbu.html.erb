@@ -1,7 +1,7 @@
 <h1>List of CBU contributions</h1>
 <strong><%= @memberName %></strong></br>
 
-<%= link_to 'Add Payment', new_cbu_contribution_path(:cbu_id => params[:cbu_id]) %>
+<%= link_to 'Add Payment', new_cbu_contribution_path(:cbu_id =>  params[:cbu_id]) %>
 <br/><%= link_to 'Home', root_path %>
 <br/>
 <br/>
@@ -18,18 +18,16 @@
   </thead>
 
   <tbody>
-    <% @payment.each do |cbu_payment| %>
+    <% @payment.each do |cbu_contribution| %>
       <tr>
-        <td><%= cbu_payment.cbu_id %></td>
-        <td><%= cbu_payment.amount %></td>
-        <td><%= loan_payment.payment_date %></td>
-        <td><%= loan_payment.ornumber %></td>
-        <td><%= link_to 'Show', loan_payment %></td>
-        <td><%= link_to 'Edit', edit_loan_payment_path(loan_payment) %></td>
-        <td><%= link_to 'Destroy', loan_payment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+        <td><%= cbu_contribution.cbu_id %></td>
+        <td><%= cbu_contribution.amount %></td>
+        <td><%= cbu_contribution.payment_date %></td>
+        <td><%= cbu_contribution.ornumber %></td>
+        <td><%= link_to 'Show', cbu_contribution %></td>
+        <td><%= link_to 'Edit', edit_cbu_contribution_path(cbu_contribution) %></td>
+ 		<td><%= link_to 'Destroy', cbu_contribution, method: :delete, data: { confirm: 'Are you sure?' } %></td>     
+ 	  </tr>
     <% end %>
   </tbody>
 </table>
-
-<br>

@@ -143,6 +143,7 @@
 	<%= f.radio_button(:membership_type, "Associate") %>
 	<%= f.label(:membershipType_A, "Associate") %>
   </div>
+  
   <div class="field">
     <label>Date Approved:</label><br/>
     <%= f.date_select :date_approved %>
@@ -151,6 +152,11 @@
     <%= f.label :notes %><br>
     <%= f.text_area :notes %>
   </div>
+  <div class="field">
+    <label>Password:</label><br/>
+    <%= f.text_field :password %>
+  </div>
+  
   <div class="actions">
     <%= f.submit %>
   </div>
